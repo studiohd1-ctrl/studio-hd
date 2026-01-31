@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Studio HD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: radial-gradient(circle at top, #0f2027, #000);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      animation: fadeIn 1.5s ease;
+    }
+
+    h1 {
+      font-size: 3rem;
+      letter-spacing: 2px;
+      margin-bottom: 40px;
+      text-shadow: 0 0 20px #00f7ff;
+    }
+
+    .btn {
+      padding: 18px 40px;
+      font-size: 1.1rem;
+      color: #00f7ff;
+      background: transparent;
+      border: 2px solid #00f7ff;
+      border-radius: 12px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: 0.3s;
+      box-shadow: 0 0 25px rgba(0,247,255,0.4);
+    }
+
+    .btn:hover {
+      background: #00f7ff;
+      color: #000;
+      box-shadow: 0 0 40px #00f7ff;
+    }
+
+    .page {
+      display: none;
+      max-width: 800px;
+      padding: 30px;
+      line-height: 1.6;
+      animation: slideUp 1s ease;
+    }
+
+    .page h2 {
+      margin-bottom: 20px;
+      color: #00f7ff;
+    }
+
+    .back {
+      margin-top: 30px;
+      display: inline-block;
+      color: #00f7ff;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HOME -->
+  <div class="container" id="home">
+    <h1>Studio HD</h1>
+    <button class="btn" onclick="openInfo()">Informações Studio</button>
+  </div>
+
+  <!-- INFO PAGE -->
+  <div class="page" id="info">
+    <h2>Sobre o Roblox Studio</h2>
+    <p>
+      O Roblox Studio é a principal ferramenta de criação da plataforma Roblox.
+      Ele permite que qualquer pessoa desenvolva jogos, experiências interativas
+      e mundos completos usando scripts, modelos 3D e sistemas avançados.
+    </p>
+    <p>
+      Com o Studio, criadores podem programar em Lua, criar sistemas de física,
+      interfaces personalizadas, monetização e muito mais. Ele é usado tanto por
+      iniciantes quanto por estúdios profissionais.
+    </p>
+    <p>
+      O Roblox Studio evolui constantemente, trazendo novos recursos gráficos,
+      melhorias de desempenho e ferramentas modernas para criação de experiências
+      imersivas.
+    </p>
+
+    <span class="back" onclick="goBack()">← Voltar</span>
+  </div>
+
+  <script>
+    function openInfo() {
+      document.getElementById('home').style.display = 'none';
+      document.getElementById('info').style.display = 'block';
+    }
+
+    function goBack() {
+      document.getElementById('info').style.display = 'none';
+      document.getElementById('home').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
