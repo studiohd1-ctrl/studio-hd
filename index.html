@@ -88,6 +88,17 @@
       box-shadow: 0 0 40px #ff6b6b;
     }
 
+    .btn.assistant {
+      color: #9b59b6;
+      border-color: #9b59b6;
+      box-shadow: 0 0 25px rgba(155,89,182,0.4);
+    }
+
+    .btn.assistant:hover {
+      background: #9b59b6;
+      box-shadow: 0 0 40px #9b59b6;
+    }
+
     /* PÁGINAS */
     .page {
       display: none;
@@ -115,12 +126,208 @@
       color: #ddd;
     }
 
+    /* ASSISTENTE */
+    #assistant {
+      max-width: 1100px;
+    }
+
+    .chat-container {
+      background: rgba(15,32,39,0.6);
+      border: 2px solid #9b59b6;
+      border-radius: 20px;
+      padding: 20px;
+      height: 650px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 0 40px rgba(155,89,182,0.3);
+    }
+
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      margin-bottom: 20px;
+      scrollbar-width: thin;
+      scrollbar-color: #9b59b6 rgba(0,0,0,0.3);
+      scroll-behavior: smooth;
+    }
+
+    .chat-messages::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .chat-messages::-webkit-scrollbar-track {
+      background: rgba(0,0,0,0.3);
+      border-radius: 10px;
+    }
+
+    .chat-messages::-webkit-scrollbar-thumb {
+      background: #9b59b6;
+      border-radius: 10px;
+    }
+
+    .message {
+      margin-bottom: 15px;
+      padding: 15px;
+      border-radius: 15px;
+      animation: messageSlide 0.3s ease;
+      max-width: 80%;
+      white-space: pre-wrap;
+    }
+
+    @keyframes messageSlide {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .message.user {
+      background: rgba(0,247,255,0.2);
+      border: 1px solid #00f7ff;
+      margin-left: auto;
+      text-align: right;
+    }
+
+    .message.bot {
+      background: rgba(155,89,182,0.2);
+      border: 1px solid #9b59b6;
+      margin-right: auto;
+    }
+
+    .message.bot strong {
+      color: #9b59b6;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .typing-indicator {
+      display: none;
+      padding: 15px;
+      background: rgba(155,89,182,0.2);
+      border: 1px solid #9b59b6;
+      border-radius: 15px;
+      max-width: 80px;
+      margin-bottom: 15px;
+    }
+
+    .typing-indicator.show {
+      display: block;
+      animation: messageSlide 0.3s ease;
+    }
+
+    .typing-indicator span {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: #9b59b6;
+      border-radius: 50%;
+      margin: 0 2px;
+      animation: typing 1.4s infinite;
+    }
+
+    .typing-indicator span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .typing-indicator span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes typing {
+      0%, 60%, 100% { transform: translateY(0); }
+      30% { transform: translateY(-10px); }
+    }
+
+    .chat-input-area {
+      display: flex;
+      gap: 10px;
+    }
+
+    .chat-input {
+      flex: 1;
+      padding: 15px;
+      background: rgba(0,0,0,0.5);
+      border: 2px solid #9b59b6;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .chat-input:focus {
+      border-color: #00f7ff;
+      box-shadow: 0 0 15px rgba(155,89,182,0.5);
+    }
+
+    .send-btn {
+      padding: 15px 30px;
+      background: #9b59b6;
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: bold;
+    }
+
+    .send-btn:hover {
+      background: #8e44ad;
+      box-shadow: 0 0 20px rgba(155,89,182,0.8);
+    }
+
+    .send-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .suggestions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      justify-content: center;
+    }
+
+    .suggestion-btn {
+      padding: 10px 20px;
+      background: rgba(155,89,182,0.2);
+      border: 1px solid #9b59b6;
+      border-radius: 20px;
+      color: #9b59b6;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .suggestion-btn:hover {
+      background: rgba(155,89,182,0.4);
+      transform: translateY(-2px);
+    }
+
     /* GALERIA */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 25px;
       margin-top: 40px;
+      max-height: 600px;
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+
+    .gallery-grid::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .gallery-grid::-webkit-scrollbar-track {
+      background: rgba(0,0,0,0.3);
+      border-radius: 10px;
+    }
+
+    .gallery-grid::-webkit-scrollbar-thumb {
+      background: #00f7ff;
+      border-radius: 10px;
     }
 
     .gallery-item {
@@ -146,6 +353,27 @@
     .gallery-item p {
       font-size: 0.95rem;
       color: #aaa;
+    }
+
+    /* INFO PAGE */
+    .info-content {
+      max-height: 600px;
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+
+    .info-content::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .info-content::-webkit-scrollbar-track {
+      background: rgba(0,0,0,0.3);
+      border-radius: 10px;
+    }
+
+    .info-content::-webkit-scrollbar-thumb {
+      background: #00f7ff;
+      border-radius: 10px;
     }
 
     /* BOTÃO VOLTAR */
@@ -204,6 +432,22 @@
       .page h2 {
         font-size: 2rem;
       }
+
+      .chat-container {
+        height: 500px;
+      }
+
+      .message {
+        max-width: 90%;
+      }
+
+      .gallery-grid {
+        max-height: 400px;
+      }
+
+      .info-content {
+        max-height: 400px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -219,6 +463,18 @@
       .btn {
         width: 100%;
       }
+
+      .chat-input-area {
+        flex-direction: column;
+      }
+
+      .send-btn {
+        width: 100%;
+      }
+
+      .chat-container {
+        height: 450px;
+      }
     }
   </style>
 </head>
@@ -233,6 +489,7 @@
       <div class="btn-group">
         <button class="btn" onclick="showPage('info')">Informações Studio</button>
         <button class="btn secondary" onclick="showPage('gallery')">Galeria de Projetos</button>
+        <button class="btn assistant" onclick="showPage('assistant')">🤖 Assistente IA</button>
       </div>
     </div>
   </div>
@@ -240,21 +497,23 @@
   <!-- PÁGINA INFO -->
   <div class="page" id="info">
     <h2>Sobre o Roblox Studio</h2>
-    <p>
-      O Roblox Studio é a principal ferramenta de criação da plataforma Roblox.
-      Ele permite que qualquer pessoa desenvolva jogos, experiências interativas
-      e mundos completos usando scripts, modelos 3D e sistemas avançados.
-    </p>
-    <p>
-      Com o Studio, criadores podem programar em Lua, criar sistemas de física,
-      interfaces personalizadas, monetização e muito mais. Ele é usado tanto por
-      iniciantes quanto por estúdios profissionais.
-    </p>
-    <p>
-      O Roblox Studio evolui constantemente, trazendo novos recursos gráficos,
-      melhorias de desempenho e ferramentas modernas para criação de experiências
-      imersivas que alcançam milhões de jogadores ao redor do mundo.
-    </p>
+    <div class="info-content">
+      <p>
+        O Roblox Studio é a principal ferramenta de criação da plataforma Roblox.
+        Ele permite que qualquer pessoa desenvolva jogos, experiências interativas
+        e mundos completos usando scripts, modelos 3D e sistemas avançados.
+      </p>
+      <p>
+        Com o Studio, criadores podem programar em Lua, criar sistemas de física,
+        interfaces personalizadas, monetização e muito mais. Ele é usado tanto por
+        iniciantes quanto por estúdios profissionais.
+      </p>
+      <p>
+        O Roblox Studio evolui constantemente, trazendo novos recursos gráficos,
+        melhorias de desempenho e ferramentas modernas para criação de experiências
+        imersivas que alcançam milhões de jogadores ao redor do mundo.
+      </p>
+    </div>
 
     <button class="back-btn" onclick="goHome()">← Voltar ao Início</button>
   </div>
@@ -294,6 +553,57 @@
         <h3>🧩 Quebra-Cabeças</h3>
         <p>Desafios lógicos, puzzles complexos e mecânicas inovadoras.</p>
       </div>
+
+      <div class="gallery-item">
+        <h3>🌍 Mundos RPG</h3>
+        <p>Sistemas de level up, classes, magias e missões épicas.</p>
+      </div>
+
+      <div class="gallery-item">
+        <h3>🎯 FPS Shooter</h3>
+        <p>Jogos de tiro em primeira pessoa com armas e mapas variados.</p>
+      </div>
+    </div>
+
+    <button class="back-btn" onclick="goHome()">← Voltar ao Início</button>
+  </div>
+
+  <!-- PÁGINA ASSISTENTE -->
+  <div class="page" id="assistant">
+    <h2>🤖 Assistente Roblox Studio</h2>
+    <p style="text-align: center; margin-bottom: 30px;">Tire suas dúvidas sobre Roblox Studio!</p>
+
+    <div class="chat-container">
+      <div class="chat-messages" id="chatMessages">
+        <div class="message bot">
+          <strong>Assistente Studio HD</strong>Olá! 👋 Sou seu assistente especializado em Roblox Studio. Como posso ajudar você hoje?
+        </div>
+      </div>
+
+      <div class="typing-indicator" id="typingIndicator">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <div class="chat-input-area">
+        <input 
+          type="text" 
+          class="chat-input" 
+          id="chatInput" 
+          placeholder="Digite sua pergunta sobre Roblox Studio..."
+          onkeypress="handleKeyPress(event)"
+        >
+        <button class="send-btn" id="sendBtn" onclick="sendMessage()">Enviar</button>
+      </div>
+    </div>
+
+    <div class="suggestions">
+      <button class="suggestion-btn" onclick="askQuestion('Como criar um script em Lua?')">Como criar um script?</button>
+      <button class="suggestion-btn" onclick="askQuestion('O que é DataStore?')">O que é DataStore?</button>
+      <button class="suggestion-btn" onclick="askQuestion('Como fazer um sistema de moedas?')">Sistema de moedas</button>
+      <button class="suggestion-btn" onclick="askQuestion('Como criar uma GUI?')">Criar GUI</button>
+      <button class="suggestion-btn" onclick="askQuestion('O que são RemoteEvents?')">RemoteEvents</button>
     </div>
 
     <button class="back-btn" onclick="goHome()">← Voltar ao Início</button>
@@ -305,26 +615,537 @@
   </footer>
 
   <script>
+    // BASE DE CONHECIMENTO DO ROBLOX STUDIO
+    const knowledgeBase = {
+      'script': {
+        keywords: ['script', 'criar script', 'programar', 'codigo', 'código', 'lua'],
+        answer: `Para criar um script no Roblox Studio:
+
+1. Clique com o botão direito em "ServerScriptService" (para scripts do servidor) ou "StarterPlayer > StarterPlayerScripts" (para scripts do cliente)
+2. Selecione "Insert Object" > "Script"
+3. Dê um duplo clique no script para abrir o editor
+4. Comece a programar em Lua!
+
+Exemplo básico:
+print("Olá, Roblox!")
+
+game.Players.PlayerAdded:Connect(function(player)
+    print(player.Name .. " entrou no jogo!")
+end)
+
+Dica: Use "LocalScript" para ações do cliente e "Script" para lógica do servidor.`
+      },
+
+      'datastore': {
+        keywords: ['datastore', 'salvar dados', 'dados', 'persistencia', 'persistência', 'save'],
+        answer: `DataStore é o sistema de armazenamento de dados do Roblox que permite salvar informações dos jogadores permanentemente.
+
+Como usar:
+
+local DataStoreService = game:GetService("DataStoreService")
+local myDataStore = DataStoreService:GetDataStore("MeuJogo")
+
+-- Salvar dados
+game.Players.PlayerRemoving:Connect(function(player)
+    local success, err = pcall(function()
+        myDataStore:SetAsync(player.UserId, {
+            Moedas = player.leaderstats.Moedas.Value,
+            Level = player.leaderstats.Level.Value
+        })
+    end)
+end)
+
+-- Carregar dados
+game.Players.PlayerAdded:Connect(function(player)
+    local data = myDataStore:GetAsync(player.UserId)
+    if data then
+        player.leaderstats.Moedas.Value = data.Moedas
+    end
+end)
+
+⚠️ IMPORTANTE: Sempre use pcall() para evitar erros!`
+      },
+
+      'moedas': {
+        keywords: ['moedas', 'dinheiro', 'currency', 'sistema de moedas', 'coins'],
+        answer: `Sistema de moedas básico no Roblox:
+
+game.Players.PlayerAdded:Connect(function(player)
+    -- Criar pasta de stats
+    local leaderstats = Instance.new("Folder")
+    leaderstats.Name = "leaderstats"
+    leaderstats.Parent = player
+    
+    -- Criar valor de moedas
+    local moedas = Instance.new("IntValue")
+    moedas.Name = "Moedas"
+    moedas.Value = 100 -- valor inicial
+    moedas.Parent = leaderstats
+end)
+
+-- Dar moedas ao jogador
+function darMoedas(player, quantidade)
+    player.leaderstats.Moedas.Value += quantidade
+end
+
+-- Exemplo de uso
+darMoedas(player, 50) -- dá 50 moedas
+
+Dica: Combine com DataStore para salvar as moedas!`
+      },
+
+      'gui': {
+        keywords: ['gui', 'interface', 'ui', 'tela', 'menu', 'screengui'],
+        answer: `Para criar uma GUI (Interface Gráfica) no Roblox:
+
+1. Vá em StarterGui
+2. Insert Object > ScreenGui
+3. Adicione elementos como:
+   - TextLabel (texto)
+   - TextButton (botão)
+   - Frame (container)
+   - ImageLabel (imagens)
+
+Exemplo de script para um botão:
+
+local button = script.Parent -- seu TextButton
+
+button.MouseButton1Click:Connect(function()
+    print("Botão clicado!")
+    button.Text = "Clicado!"
+end)
+
+Propriedades importantes:
+- Position: UDim2.new(0.5, 0, 0.5, 0)
+- Size: UDim2.new(0.2, 0, 0.1, 0)
+- BackgroundColor3: Color3.fromRGB(0, 247, 255)
+- TextScaled: true (ajusta texto automaticamente)
+
+Dica: Use TweenService para animações suaves!`
+      },
+
+      'remoteevent': {
+        keywords: ['remoteevent', 'remote event', 'servidor', 'cliente', 'comunicacao', 'comunicação'],
+        answer: `RemoteEvents permitem comunicação entre servidor e cliente:
+
+**Criar RemoteEvent:**
+1. Em ReplicatedStorage, crie uma pasta "Events"
+2. Insert Object > RemoteEvent
+
+**Servidor → Cliente:**
+-- Script (servidor)
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local evento = ReplicatedStorage.Events.MeuEvento
+
+evento:FireClient(player, "Mensagem do servidor!")
+
+-- LocalScript (cliente)
+evento.OnClientEvent:Connect(function(mensagem)
+    print(mensagem)
+end)
+
+**Cliente → Servidor:**
+-- LocalScript (cliente)
+evento:FireServer("Oi servidor!")
+
+-- Script (servidor)
+evento.OnServerEvent:Connect(function(player, mensagem)
+    print(player.Name .. " disse: " .. mensagem)
+end)
+
+⚠️ SEGURANÇA: Sempre valide dados no servidor!`
+      },
+
+      'tween': {
+        keywords: ['tween', 'animacao', 'animação', 'movimento', 'tweenservice'],
+        answer: `TweenService cria animações suaves de objetos:
+
+local TweenService = game:GetService("TweenService")
+
+-- Objeto a ser animado
+local parte = workspace.MinhaParte
+
+-- Propriedades da animação
+local tweenInfo = TweenInfo.new(
+    2, -- duração (segundos)
+    Enum.EasingStyle.Quad, -- estilo
+    Enum.EasingDirection.Out, -- direção
+    0, -- repetições (0 = uma vez)
+    false, -- reverter?
+    0 -- delay
+)
+
+-- Propriedades finais
+local goal = {
+    Position = Vector3.new(10, 5, 10),
+    Transparency = 0.5,
+    Color = Color3.fromRGB(255, 0, 0)
+}
+
+-- Criar e executar
+local tween = TweenService:Create(parte, tweenInfo, goal)
+tween:Play()
+
+-- Detectar quando terminar
+tween.Completed:Connect(function()
+    print("Animação completa!")
+end)
+
+Estilos comuns: Linear, Quad, Cubic, Bounce, Elastic`
+      },
+
+      'parte': {
+        keywords: ['parte', 'part', 'objeto', 'criar objeto', 'bloco'],
+        answer: `Criar e manipular Parts (peças) no Roblox:
+
+**Criar Part por script:**
+local parte = Instance.new("Part")
+parte.Name = "MinhaParte"
+parte.Size = Vector3.new(4, 1, 2) -- largura, altura, profundidade
+parte.Position = Vector3.new(0, 10, 0)
+parte.BrickColor = BrickColor.new("Bright blue")
+parte.Material = Enum.Material.Neon
+parte.Anchored = true -- não cai
+parte.Parent = workspace
+
+**Propriedades úteis:**
+- Anchored: true/false (fixo ou com física)
+- CanCollide: true/false (colisão)
+- Transparency: 0 a 1 (0 = visível, 1 = invisível)
+- Reflectance: 0 a 1 (brilho)
+- Material: Plastic, Wood, Metal, Neon, etc.
+
+**Detectar toque:**
+parte.Touched:Connect(function(hit)
+    local player = game.Players:GetPlayerFromCharacter(hit.Parent)
+    if player then
+        print(player.Name .. " tocou a parte!")
+    end
+end)`
+      },
+
+      'tool': {
+        keywords: ['tool', 'ferramenta', 'item', 'equipar', 'inventario', 'inventário'],
+        answer: `Criar ferramentas (Tools) no Roblox:
+
+**Estrutura básica:**
+1. Em StarterPack, crie uma Tool
+2. Dentro da Tool, adicione:
+   - Handle (Part que o jogador segura)
+   - Script (lógica da ferramenta)
+
+**Exemplo - Espada simples:**
+local tool = script.Parent
+local handle = tool.Handle
+
+-- Quando equipar
+tool.Equipped:Connect(function()
+    print("Equipou a ferramenta!")
+end)
+
+-- Quando ativar (clicar)
+tool.Activated:Connect(function()
+    print("Usou a ferramenta!")
+    
+    -- Detectar inimigos próximos
+    for _, parte in pairs(workspace:GetChildren()) do
+        if parte:IsA("Model") and parte:FindFirstChild("Humanoid") then
+            local dist = (handle.Position - parte.PrimaryPart.Position).Magnitude
+            if dist < 10 then
+                parte.Humanoid:TakeDamage(10)
+            end
+        end
+    end
+end)
+
+-- Quando desequipar
+tool.Unequipped:Connect(function()
+    print("Desequipou!")
+end)
+
+Dica: Use Animations para movimentos realistas!`
+      },
+
+      'humanoid': {
+        keywords: ['humanoid', 'personagem', 'vida', 'hp', 'health', 'dano'],
+        answer: `Humanoid é o componente que controla personagens:
+
+**Propriedades principais:**
+- Health: vida atual
+- MaxHealth: vida máxima
+- WalkSpeed: velocidade de caminhada (16 = padrão)
+- JumpPower: poder do pulo (50 = padrão)
+- JumpHeight: altura do pulo (7.2 = padrão)
+
+**Exemplos de uso:**
+
+-- Dar dano
+local humanoid = character:FindFirstChild("Humanoid")
+if humanoid then
+    humanoid:TakeDamage(20)
+end
+
+-- Curar
+humanoid.Health = humanoid.MaxHealth
+
+-- Aumentar velocidade
+humanoid.WalkSpeed = 32
+
+-- Detectar morte
+humanoid.Died:Connect(function()
+    print("Jogador morreu!")
+end)
+
+-- Detectar quando toma dano
+humanoid.HealthChanged:Connect(function(health)
+    print("Vida agora: " .. health)
+end)
+
+-- Impedir pulo
+humanoid.JumpPower = 0
+
+Dica: Use Humanoid:LoadAnimation() para animações personalizadas!`
+      },
+
+      'workspace': {
+        keywords: ['workspace', 'mundo', 'mapa', 'cenario', 'cenário'],
+        answer: `Workspace é onde ficam todos os objetos 3D visíveis do jogo:
+
+**Manipular o workspace:**
+
+-- Encontrar objeto
+local parte = workspace:FindFirstChild("MinhaParte")
+
+-- Criar objeto no workspace
+local novaParte = Instance.new("Part")
+novaParte.Parent = workspace
+
+-- Listar todos os objetos
+for _, objeto in pairs(workspace:GetChildren()) do
+    print(objeto.Name)
+end
+
+-- Encontrar objetos por nome (recursivo)
+local obj = workspace:FindFirstChild("Nome", true)
+
+-- Deletar tudo no workspace
+for _, obj in pairs(workspace:GetChildren()) do
+    if obj:IsA("Model") or obj:IsA("Part") then
+        obj:Destroy()
+    end
+end
+
+**Propriedades do Workspace:**
+- Gravity: 196.2 (padrão da Terra)
+- workspace.Gravity = 50 -- gravidade da Lua
+- workspace.Gravity = 0 -- sem gravidade!
+
+**Raycasting (detectar objetos):**
+local origin = Vector3.new(0, 10, 0)
+local direction = Vector3.new(0, -20, 0)
+local ray = workspace:Raycast(origin, direction)
+
+if ray then
+    print("Atingiu: " .. ray.Instance.Name)
+end`
+      },
+
+      'leaderstats': {
+        keywords: ['leaderstats', 'placar', 'scoreboard', 'pontos', 'ranking'],
+        answer: `Leaderstats é o sistema de placar do Roblox (aparece ao pressionar TAB):
+
+**Criar leaderstats:**
+game.Players.PlayerAdded:Connect(function(player)
+    -- Criar pasta leaderstats
+    local leaderstats = Instance.new("Folder")
+    leaderstats.Name = "leaderstats"
+    leaderstats.Parent = player
+    
+    -- Adicionar estatísticas
+    local kills = Instance.new("IntValue")
+    kills.Name = "Kills"
+    kills.Value = 0
+    kills.Parent = leaderstats
+    
+    local deaths = Instance.new("IntValue")
+    deaths.Name = "Deaths"
+    deaths.Value = 0
+    deaths.Parent = leaderstats
+    
+    local coins = Instance.new("IntValue")
+    coins.Name = "Moedas"
+    coins.Value = 100
+    coins.Parent = leaderstats
+end)
+
+**Atualizar valores:**
+player.leaderstats.Kills.Value += 1
+player.leaderstats.Moedas.Value -= 50
+
+**Tipos de valores:**
+- IntValue (números inteiros)
+- NumberValue (números decimais)
+- StringValue (texto)
+- BoolValue (true/false)
+
+As stats aparecem automaticamente no placar em ordem alfabética!`
+      }
+    };
+
+    // Variável para controlar se está digitando
+    let isTyping = false;
+
+    // SISTEMA DE BUSCA INTELIGENTE
+    function findBestAnswer(userQuestion) {
+      const question = userQuestion.toLowerCase();
+      let bestMatch = null;
+      let bestScore = 0;
+
+      for (const [key, data] of Object.entries(knowledgeBase)) {
+        let score = 0;
+        
+        for (const keyword of data.keywords) {
+          if (question.includes(keyword.toLowerCase())) {
+            score += keyword.length;
+          }
+        }
+
+        if (score > bestScore) {
+          bestScore = score;
+          bestMatch = data.answer;
+        }
+      }
+
+      if (bestScore > 0) {
+        return bestMatch;
+      }
+
+      return `Hmm, não tenho certeza sobre isso ainda. 🤔
+
+Mas posso te ajudar com:
+• Scripts e programação em Lua
+• DataStore e salvamento de dados
+• Sistemas de moedas e economia
+• Criação de GUIs e interfaces
+• RemoteEvents e comunicação cliente-servidor
+• TweenService e animações
+• Parts, Tools e Humanoids
+• Leaderstats e placar
+
+Tente reformular sua pergunta ou escolha uma das sugestões abaixo!`;
+    }
+
+    // EFEITO DE DIGITAÇÃO LETRA POR LETRA
+    function typeMessage(text, element, callback) {
+      let index = 0;
+      const speed = 15; // velocidade de digitação (ms por letra)
+      
+      function type() {
+        if (index < text.length) {
+          element.innerHTML += text.charAt(index) === '\n' ? '<br>' : text.charAt(index);
+          index++;
+          setTimeout(type, speed);
+        } else {
+          isTyping = false;
+          if (callback) callback();
+        }
+      }
+      
+      type();
+    }
+
+    // FUNÇÕES DE CHAT
+    function sendMessage() {
+      if (isTyping) return; // Impede envio durante digitação
+      
+      const input = document.getElementById('chatInput');
+      const sendBtn = document.getElementById('sendBtn');
+      const message = input.value.trim();
+      
+      if (message === '') return;
+
+      // Desabilitar input durante resposta
+      input.disabled = true;
+      sendBtn.disabled = true;
+
+      // Adicionar mensagem do usuário
+      addMessage(message, 'user');
+      input.value = '';
+
+      // Mostrar indicador de digitação
+      const typing = document.getElementById('typingIndicator');
+      typing.classList.add('show');
+
+      // Simular delay de processamento
+      setTimeout(() => {
+        typing.classList.remove('show');
+        
+        // Buscar resposta
+        const answer = findBestAnswer(message);
+        addBotMessageWithTyping(answer, () => {
+          // Reabilitar input após terminar de digitar
+          input.disabled = false;
+          sendBtn.disabled = false;
+          input.focus();
+        });
+      }, 800 + Math.random() * 600);
+    }
+
+    function addMessage(text, type) {
+      const messagesContainer = document.getElementById('chatMessages');
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `message ${type}`;
+      messageDiv.textContent = text;
+      
+      messagesContainer.appendChild(messageDiv);
+    }
+
+    function addBotMessageWithTyping(text, callback) {
+      isTyping = true;
+      const messagesContainer = document.getElementById('chatMessages');
+      const messageDiv = document.createElement('div');
+      messageDiv.className = 'message bot';
+      
+      const headerDiv = document.createElement('strong');
+      headerDiv.textContent = 'Assistente Studio HD';
+      messageDiv.appendChild(headerDiv);
+      
+      const contentDiv = document.createElement('span');
+      messageDiv.appendChild(contentDiv);
+      
+      messagesContainer.appendChild(messageDiv);
+      
+      // Iniciar efeito de digitação
+      typeMessage(text, contentDiv, callback);
+    }
+
+    function askQuestion(question) {
+      document.getElementById('chatInput').value = question;
+      sendMessage();
+    }
+
+    function handleKeyPress(event) {
+      if (event.key === 'Enter' && !isTyping) {
+        sendMessage();
+      }
+    }
+
+    // NAVEGAÇÃO
     function showPage(pageId) {
-      // Esconde home
       document.getElementById('home').style.display = 'none';
       
-      // Esconde todas as páginas
       document.querySelectorAll('.page').forEach(page => {
         page.classList.remove('active');
       });
       
-      // Mostra página selecionada
       document.getElementById(pageId).classList.add('active');
     }
 
     function goHome() {
-      // Esconde todas as páginas
       document.querySelectorAll('.page').forEach(page => {
         page.classList.remove('active');
       });
       
-      // Mostra home
       document.getElementById('home').style.display = 'flex';
     }
   </script>
