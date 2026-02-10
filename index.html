@@ -18,6 +18,40 @@
       background: radial-gradient(circle at top, #0f2027, #000);
       color: #fff;
       overflow-x: hidden;
+      transition: background 0.5s ease;
+    }
+
+    body.lab-mode {
+      background: radial-gradient(circle at top, #2d0a27, #000);
+    }
+
+    /* BOTÃO LAB MODE (FIXO NO CANTO) */
+    .lab-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 12px 25px;
+      background: rgba(155,89,182,0.3);
+      border: 2px solid #9b59b6;
+      border-radius: 25px;
+      color: #9b59b6;
+      cursor: pointer;
+      z-index: 9999;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(155,89,182,0.3);
+    }
+
+    .lab-toggle:hover {
+      background: rgba(155,89,182,0.5);
+      transform: scale(1.05);
+    }
+
+    body.lab-mode .lab-toggle {
+      background: rgba(255,105,180,0.3);
+      border-color: #ff69b4;
+      color: #ff69b4;
+      box-shadow: 0 0 20px rgba(255,105,180,0.5);
     }
 
     /* CONTAINER PRINCIPAL */
@@ -37,6 +71,15 @@
       margin-bottom: 20px;
       text-shadow: 0 0 30px #00f7ff;
       background: linear-gradient(45deg, #00f7ff, #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      transition: all 0.5s ease;
+    }
+
+    body.lab-mode h1 {
+      text-shadow: 0 0 30px #ff69b4;
+      background: linear-gradient(45deg, #ff69b4, #fff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -77,6 +120,18 @@
       transform: translateY(-3px);
     }
 
+    body.lab-mode .btn {
+      color: #ff69b4;
+      border-color: #ff69b4;
+      box-shadow: 0 0 25px rgba(255,105,180,0.4);
+    }
+
+    body.lab-mode .btn:hover {
+      background: #ff69b4;
+      color: #000;
+      box-shadow: 0 0 40px #ff69b4;
+    }
+
     .btn.secondary {
       color: #ff6b6b;
       border-color: #ff6b6b;
@@ -88,6 +143,17 @@
       box-shadow: 0 0 40px #ff6b6b;
     }
 
+    body.lab-mode .btn.secondary {
+      color: #ffb6c1;
+      border-color: #ffb6c1;
+      box-shadow: 0 0 25px rgba(255,182,193,0.4);
+    }
+
+    body.lab-mode .btn.secondary:hover {
+      background: #ffb6c1;
+      box-shadow: 0 0 40px #ffb6c1;
+    }
+
     .btn.assistant {
       color: #9b59b6;
       border-color: #9b59b6;
@@ -97,6 +163,17 @@
     .btn.assistant:hover {
       background: #9b59b6;
       box-shadow: 0 0 40px #9b59b6;
+    }
+
+    body.lab-mode .btn.assistant {
+      color: #ff1493;
+      border-color: #ff1493;
+      box-shadow: 0 0 25px rgba(255,20,147,0.4);
+    }
+
+    body.lab-mode .btn.assistant:hover {
+      background: #ff1493;
+      box-shadow: 0 0 40px #ff1493;
     }
 
     /* PÁGINAS */
@@ -118,6 +195,12 @@
       font-size: 2.5rem;
       color: #00f7ff;
       text-shadow: 0 0 20px #00f7ff;
+      transition: all 0.5s ease;
+    }
+
+    body.lab-mode .page h2 {
+      color: #ff69b4;
+      text-shadow: 0 0 20px #ff69b4;
     }
 
     .page p {
@@ -140,6 +223,13 @@
       display: flex;
       flex-direction: column;
       box-shadow: 0 0 40px rgba(155,89,182,0.3);
+      transition: all 0.5s ease;
+    }
+
+    body.lab-mode .chat-container {
+      background: rgba(45,10,39,0.6);
+      border-color: #ff69b4;
+      box-shadow: 0 0 40px rgba(255,105,180,0.3);
     }
 
     .chat-messages {
@@ -150,6 +240,10 @@
       scrollbar-width: thin;
       scrollbar-color: #9b59b6 rgba(0,0,0,0.3);
       scroll-behavior: smooth;
+    }
+
+    body.lab-mode .chat-messages {
+      scrollbar-color: #ff69b4 rgba(0,0,0,0.3);
     }
 
     .chat-messages::-webkit-scrollbar {
@@ -164,6 +258,11 @@
     .chat-messages::-webkit-scrollbar-thumb {
       background: #9b59b6;
       border-radius: 10px;
+      transition: background 0.3s;
+    }
+
+    body.lab-mode .chat-messages::-webkit-scrollbar-thumb {
+      background: #ff69b4;
     }
 
     .message {
@@ -173,6 +272,7 @@
       animation: messageSlide 0.3s ease;
       max-width: 80%;
       white-space: pre-wrap;
+      transition: all 0.3s ease;
     }
 
     @keyframes messageSlide {
@@ -187,16 +287,30 @@
       text-align: right;
     }
 
+    body.lab-mode .message.user {
+      background: rgba(255,105,180,0.2);
+      border-color: #ff69b4;
+    }
+
     .message.bot {
       background: rgba(155,89,182,0.2);
       border: 1px solid #9b59b6;
       margin-right: auto;
     }
 
+    body.lab-mode .message.bot {
+      background: rgba(255,20,147,0.2);
+      border-color: #ff1493;
+    }
+
     .message.bot strong {
       color: #9b59b6;
       display: block;
       margin-bottom: 5px;
+    }
+
+    body.lab-mode .message.bot strong {
+      color: #ff69b4;
     }
 
     .typing-indicator {
@@ -207,6 +321,12 @@
       border-radius: 15px;
       max-width: 80px;
       margin-bottom: 15px;
+      transition: all 0.3s ease;
+    }
+
+    body.lab-mode .typing-indicator {
+      background: rgba(255,20,147,0.2);
+      border-color: #ff1493;
     }
 
     .typing-indicator.show {
@@ -222,6 +342,11 @@
       border-radius: 50%;
       margin: 0 2px;
       animation: typing 1.4s infinite;
+      transition: background 0.3s;
+    }
+
+    body.lab-mode .typing-indicator span {
+      background: #ff69b4;
     }
 
     .typing-indicator span:nth-child(2) {
@@ -259,6 +384,15 @@
       box-shadow: 0 0 15px rgba(155,89,182,0.5);
     }
 
+    body.lab-mode .chat-input {
+      border-color: #ff69b4;
+    }
+
+    body.lab-mode .chat-input:focus {
+      border-color: #ff1493;
+      box-shadow: 0 0 15px rgba(255,105,180,0.5);
+    }
+
     .send-btn {
       padding: 15px 30px;
       background: #9b59b6;
@@ -274,6 +408,15 @@
     .send-btn:hover {
       background: #8e44ad;
       box-shadow: 0 0 20px rgba(155,89,182,0.8);
+    }
+
+    body.lab-mode .send-btn {
+      background: #ff69b4;
+    }
+
+    body.lab-mode .send-btn:hover {
+      background: #ff1493;
+      box-shadow: 0 0 20px rgba(255,105,180,0.8);
     }
 
     .send-btn:disabled {
@@ -305,6 +448,16 @@
       transform: translateY(-2px);
     }
 
+    body.lab-mode .suggestion-btn {
+      background: rgba(255,105,180,0.2);
+      border-color: #ff69b4;
+      color: #ff69b4;
+    }
+
+    body.lab-mode .suggestion-btn:hover {
+      background: rgba(255,105,180,0.4);
+    }
+
     /* GALERIA */
     .gallery-grid {
       display: grid;
@@ -328,6 +481,11 @@
     .gallery-grid::-webkit-scrollbar-thumb {
       background: #00f7ff;
       border-radius: 10px;
+      transition: background 0.3s;
+    }
+
+    body.lab-mode .gallery-grid::-webkit-scrollbar-thumb {
+      background: #ff69b4;
     }
 
     .gallery-item {
@@ -345,9 +503,24 @@
       background: rgba(0,247,255,0.1);
     }
 
+    body.lab-mode .gallery-item {
+      background: rgba(255,105,180,0.05);
+      border-color: #ff69b4;
+    }
+
+    body.lab-mode .gallery-item:hover {
+      box-shadow: 0 10px 30px rgba(255,105,180,0.3);
+      background: rgba(255,105,180,0.1);
+    }
+
     .gallery-item h3 {
       color: #00f7ff;
       margin-bottom: 10px;
+      transition: color 0.3s;
+    }
+
+    body.lab-mode .gallery-item h3 {
+      color: #ff69b4;
     }
 
     .gallery-item p {
@@ -374,6 +547,11 @@
     .info-content::-webkit-scrollbar-thumb {
       background: #00f7ff;
       border-radius: 10px;
+      transition: background 0.3s;
+    }
+
+    body.lab-mode .info-content::-webkit-scrollbar-thumb {
+      background: #ff69b4;
     }
 
     /* BOTÃO VOLTAR */
@@ -394,6 +572,16 @@
       color: #000;
     }
 
+    body.lab-mode .back-btn {
+      border-color: #ff69b4;
+      color: #ff69b4;
+    }
+
+    body.lab-mode .back-btn:hover {
+      background: #ff69b4;
+      color: #000;
+    }
+
     /* FOOTER */
     footer {
       text-align: center;
@@ -401,6 +589,11 @@
       color: #666;
       font-size: 0.9rem;
       border-top: 1px solid rgba(0,247,255,0.1);
+      transition: border-color 0.3s;
+    }
+
+    body.lab-mode footer {
+      border-top-color: rgba(255,105,180,0.1);
     }
 
     /* ANIMAÇÕES */
@@ -448,6 +641,13 @@
       .info-content {
         max-height: 400px;
       }
+
+      .lab-toggle {
+        top: 10px;
+        right: 10px;
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -479,6 +679,11 @@
   </style>
 </head>
 <body>
+
+  <!-- BOTÃO LAB MODE -->
+  <button class="lab-toggle" onclick="toggleLabMode()">
+    <span id="labModeText">🔬 Ativar Lab Mode</span>
+  </button>
 
   <!-- HOME -->
   <div class="container" id="home">
@@ -570,13 +775,13 @@
 
   <!-- PÁGINA ASSISTENTE -->
   <div class="page" id="assistant">
-    <h2>🤖 Assistente Roblox Studio</h2>
-    <p style="text-align: center; margin-bottom: 30px;">Tire suas dúvidas sobre Roblox Studio!</p>
+    <h2 id="assistantTitle">🤖 Assistente Roblox Studio</h2>
+    <p style="text-align: center; margin-bottom: 30px;" id="assistantSubtitle">Tire suas dúvidas sobre Roblox Studio!</p>
 
     <div class="chat-container">
       <div class="chat-messages" id="chatMessages">
         <div class="message bot">
-          <strong>Assistente Studio HD</strong>Olá! 👋 Sou seu assistente especializado em Roblox Studio. Como posso ajudar você hoje?
+          <strong id="botName">Assistente Studio HD</strong><span id="welcomeMsg">Olá! 👋 Sou seu assistente especializado em Roblox Studio. Como posso ajudar você hoje?</span>
         </div>
       </div>
 
@@ -598,12 +803,8 @@
       </div>
     </div>
 
-    <div class="suggestions">
-      <button class="suggestion-btn" onclick="askQuestion('Como criar um script em Lua?')">Como criar um script?</button>
-      <button class="suggestion-btn" onclick="askQuestion('O que é DataStore?')">O que é DataStore?</button>
-      <button class="suggestion-btn" onclick="askQuestion('Como fazer um sistema de moedas?')">Sistema de moedas</button>
-      <button class="suggestion-btn" onclick="askQuestion('Como criar uma GUI?')">Criar GUI</button>
-      <button class="suggestion-btn" onclick="askQuestion('O que são RemoteEvents?')">RemoteEvents</button>
+    <div class="suggestions" id="suggestions">
+      <!-- Sugestões serão atualizadas via JS -->
     </div>
 
     <button class="back-btn" onclick="goHome()">← Voltar ao Início</button>
@@ -615,7 +816,10 @@
   </footer>
 
   <script>
-    // BASE DE CONHECIMENTO DO ROBLOX STUDIO
+    // ESTADO DO LAB MODE
+    let labModeActive = false;
+
+    // BASE DE CONHECIMENTO NORMAL
     const knowledgeBase = {
       'script': {
         keywords: ['script', 'criar script', 'programar', 'codigo', 'código', 'lua'],
@@ -754,246 +958,298 @@ evento.OnServerEvent:Connect(function(player, mensagem)
 end)
 
 ⚠️ SEGURANÇA: Sempre valide dados no servidor!`
+      }
+    };
+
+    // BASE DE CONHECIMENTO LAB MODE (TÓPICOS AVANÇADOS)
+    const labKnowledgeBase = {
+      'modulescript': {
+        keywords: ['modulescript', 'module', 'modulo', 'módulo', 'organizar código', 'organizar codigo'],
+        answer: `ModuleScripts permitem organizar e reutilizar código:
+
+**Criar ModuleScript:**
+1. Em ReplicatedStorage, crie um ModuleScript
+2. Estruture assim:
+
+-- ModuleScript "MinhasBiblioteca"
+local Module = {}
+
+function Module.somar(a, b)
+    return a + b
+end
+
+function Module.multiplicar(a, b)
+    return a * b
+end
+
+return Module
+
+**Usar em outro script:**
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Biblioteca = require(ReplicatedStorage.MinhasBiblioteca)
+
+print(Biblioteca.somar(5, 3)) -- 8
+print(Biblioteca.multiplicar(4, 2)) -- 8
+
+**Vantagens:**
+✅ Código reutilizável
+✅ Organização melhor
+✅ Fácil manutenção
+✅ Performance otimizada
+
+Dica: Use para sistemas complexos como inventário, combate, etc!`
       },
 
-      'tween': {
-        keywords: ['tween', 'animacao', 'animação', 'movimento', 'tweenservice'],
-        answer: `TweenService cria animações suaves de objetos:
+      'httprequest': {
+        keywords: ['http', 'api', 'request', 'httpservice', 'requisição', 'requisicao', 'webhook'],
+        answer: `HttpService permite fazer requisições HTTP (APIs externas):
 
-local TweenService = game:GetService("TweenService")
+**Habilitar primeiro:**
+1. Home > Game Settings > Security
+2. Ative "Allow HTTP Requests"
 
--- Objeto a ser animado
-local parte = workspace.MinhaParte
+**Fazer requisição GET:**
+local HttpService = game:GetService("HttpService")
 
--- Propriedades da animação
-local tweenInfo = TweenInfo.new(
-    2, -- duração (segundos)
-    Enum.EasingStyle.Quad, -- estilo
-    Enum.EasingDirection.Out, -- direção
-    0, -- repetições (0 = uma vez)
-    false, -- reverter?
-    0 -- delay
-)
+local url = "https://api.exemplo.com/dados"
+local success, response = pcall(function()
+    return HttpService:GetAsync(url)
+end)
 
--- Propriedades finais
-local goal = {
-    Position = Vector3.new(10, 5, 10),
-    Transparency = 0.5,
-    Color = Color3.fromRGB(255, 0, 0)
+if success then
+    local data = HttpService:JSONDecode(response)
+    print(data)
+end
+
+**Fazer requisição POST:**
+local data = {
+    nome = "Jogador",
+    pontos = 100
 }
 
--- Criar e executar
-local tween = TweenService:Create(parte, tweenInfo, goal)
-tween:Play()
+local jsonData = HttpService:JSONEncode(data)
 
--- Detectar quando terminar
-tween.Completed:Connect(function()
-    print("Animação completa!")
-end)
+HttpService:PostAsync(
+    "https://api.exemplo.com/enviar",
+    jsonData,
+    Enum.HttpContentType.ApplicationJson
+)
 
-Estilos comuns: Linear, Quad, Cubic, Bounce, Elastic`
+**Discord Webhook:**
+local webhook = "SEU_WEBHOOK_AQUI"
+local message = {
+    content = "Jogador entrou no servidor!"
+}
+
+HttpService:PostAsync(webhook, HttpService:JSONEncode(message))
+
+⚠️ Use apenas em ServerScripts!`
       },
 
-      'parte': {
-        keywords: ['parte', 'part', 'objeto', 'criar objeto', 'bloco'],
-        answer: `Criar e manipular Parts (peças) no Roblox:
+      'metatable': {
+        keywords: ['metatable', 'metamethod', '__index', '__newindex', 'oo', 'orientação a objetos'],
+        answer: `Metatables permitem criar comportamentos avançados em Lua:
 
-**Criar Part por script:**
-local parte = Instance.new("Part")
-parte.Name = "MinhaParte"
-parte.Size = Vector3.new(4, 1, 2) -- largura, altura, profundidade
-parte.Position = Vector3.new(0, 10, 0)
-parte.BrickColor = BrickColor.new("Bright blue")
-parte.Material = Enum.Material.Neon
-parte.Anchored = true -- não cai
-parte.Parent = workspace
+**Básico de Metatables:**
+local minhatabela = {valor = 10}
 
-**Propriedades úteis:**
-- Anchored: true/false (fixo ou com física)
-- CanCollide: true/false (colisão)
-- Transparency: 0 a 1 (0 = visível, 1 = invisível)
-- Reflectance: 0 a 1 (brilho)
-- Material: Plastic, Wood, Metal, Neon, etc.
-
-**Detectar toque:**
-parte.Touched:Connect(function(hit)
-    local player = game.Players:GetPlayerFromCharacter(hit.Parent)
-    if player then
-        print(player.Name .. " tocou a parte!")
-    end
-end)`
-      },
-
-      'tool': {
-        keywords: ['tool', 'ferramenta', 'item', 'equipar', 'inventario', 'inventário'],
-        answer: `Criar ferramentas (Tools) no Roblox:
-
-**Estrutura básica:**
-1. Em StarterPack, crie uma Tool
-2. Dentro da Tool, adicione:
-   - Handle (Part que o jogador segura)
-   - Script (lógica da ferramenta)
-
-**Exemplo - Espada simples:**
-local tool = script.Parent
-local handle = tool.Handle
-
--- Quando equipar
-tool.Equipped:Connect(function()
-    print("Equipou a ferramenta!")
-end)
-
--- Quando ativar (clicar)
-tool.Activated:Connect(function()
-    print("Usou a ferramenta!")
+local metatabela = {
+    __index = function(tabela, chave)
+        return "Chave não encontrada: " .. chave
+    end,
     
-    -- Detectar inimigos próximos
-    for _, parte in pairs(workspace:GetChildren()) do
-        if parte:IsA("Model") and parte:FindFirstChild("Humanoid") then
-            local dist = (handle.Position - parte.PrimaryPart.Position).Magnitude
-            if dist < 10 then
-                parte.Humanoid:TakeDamage(10)
+    __newindex = function(tabela, chave, valor)
+        print("Tentou criar: " .. chave .. " = " .. valor)
+        rawset(tabela, chave, valor)
+    end
+}
+
+setmetatable(minhatabela, metatabela)
+
+print(minhatabela.inexistente) -- "Chave não encontrada: inexistente"
+
+**Criar Classes (OOP):**
+local Jogador = {}
+Jogador.__index = Jogador
+
+function Jogador.new(nome, vida)
+    local self = setmetatable({}, Jogador)
+    self.nome = nome
+    self.vida = vida
+    return self
+end
+
+function Jogador:tomarDano(quantidade)
+    self.vida -= quantidade
+    print(self.nome .. " tomou " .. quantidade .. " de dano")
+end
+
+-- Usar
+local player1 = Jogador.new("João", 100)
+player1:tomarDano(20) -- João tomou 20 de dano
+
+**Metamethods úteis:**
+- __index: acesso a chaves
+- __newindex: criação de chaves
+- __add: operador +
+- __tostring: converter para string
+- __call: chamar como função`
+      },
+
+      'contexactionservice': {
+        keywords: ['contextactionservice', 'input', 'controle', 'mobile', 'console', 'botão móvel'],
+        answer: `ContextActionService cria controles customizados multi-plataforma:
+
+**Criar botão de ação:**
+local ContextActionService = game:GetService("ContextActionService")
+
+local function pular(actionName, inputState, inputObject)
+    if inputState == Enum.UserInputState.Begin then
+        print("Jogador pulou!")
+        -- Lógica do pulo
+    end
+end
+
+-- Bind da ação
+ContextActionService:BindAction(
+    "Pular", -- nome da ação
+    pular, -- função callback
+    true, -- criar botão mobile?
+    Enum.KeyCode.Space -- tecla PC
+)
+
+**Desativar ação:**
+ContextActionService:UnbindAction("Pular")
+
+**Botão com ícone customizado:**
+ContextActionService:BindAction(
+    "Atirar",
+    atirar,
+    true,
+    Enum.KeyCode.E
+)
+
+ContextActionService:SetImage(
+    "Atirar",
+    "rbxassetid://IDIMAGEM"
+)
+
+**Vantagens:**
+✅ Funciona em PC, Mobile e Console
+✅ Botões aparecem automaticamente no mobile
+✅ Fácil de customizar
+✅ Gerencia múltiplas ações
+
+Perfeito para jogos cross-platform!`
+      },
+
+      'pathfinding': {
+        keywords: ['pathfinding', 'navegação', 'navegacao', 'npc', 'ia', 'movimentação', 'movimentacao'],
+        answer: `PathfindingService cria NPCs que navegam pelo mapa:
+
+**Fazer NPC seguir jogador:**
+local PathfindingService = game:GetService("PathfindingService")
+
+local npc = workspace.MeuNPC
+local humanoid = npc.Humanoid
+local hrp = npc.HumanoidRootPart
+
+function seguirJogador(jogador)
+    local path = PathfindingService:CreatePath()
+    
+    while true do
+        local targetPos = jogador.Character.HumanoidRootPart.Position
+        
+        -- Calcular caminho
+        path:ComputeAsync(hrp.Position, targetPos)
+        
+        if path.Status == Enum.PathStatus.Success then
+            local waypoints = path:GetWaypoints()
+            
+            for i, waypoint in pairs(waypoints) do
+                humanoid:MoveTo(waypoint.Position)
+                humanoid.MoveToFinished:Wait()
             end
+        else
+            -- Caminho falhou, ir direto
+            humanoid:MoveTo(targetPos)
         end
-    end
-end)
-
--- Quando desequipar
-tool.Unequipped:Connect(function()
-    print("Desequipou!")
-end)
-
-Dica: Use Animations para movimentos realistas!`
-      },
-
-      'humanoid': {
-        keywords: ['humanoid', 'personagem', 'vida', 'hp', 'health', 'dano'],
-        answer: `Humanoid é o componente que controla personagens:
-
-**Propriedades principais:**
-- Health: vida atual
-- MaxHealth: vida máxima
-- WalkSpeed: velocidade de caminhada (16 = padrão)
-- JumpPower: poder do pulo (50 = padrão)
-- JumpHeight: altura do pulo (7.2 = padrão)
-
-**Exemplos de uso:**
-
--- Dar dano
-local humanoid = character:FindFirstChild("Humanoid")
-if humanoid then
-    humanoid:TakeDamage(20)
-end
-
--- Curar
-humanoid.Health = humanoid.MaxHealth
-
--- Aumentar velocidade
-humanoid.WalkSpeed = 32
-
--- Detectar morte
-humanoid.Died:Connect(function()
-    print("Jogador morreu!")
-end)
-
--- Detectar quando toma dano
-humanoid.HealthChanged:Connect(function(health)
-    print("Vida agora: " .. health)
-end)
-
--- Impedir pulo
-humanoid.JumpPower = 0
-
-Dica: Use Humanoid:LoadAnimation() para animações personalizadas!`
-      },
-
-      'workspace': {
-        keywords: ['workspace', 'mundo', 'mapa', 'cenario', 'cenário'],
-        answer: `Workspace é onde ficam todos os objetos 3D visíveis do jogo:
-
-**Manipular o workspace:**
-
--- Encontrar objeto
-local parte = workspace:FindFirstChild("MinhaParte")
-
--- Criar objeto no workspace
-local novaParte = Instance.new("Part")
-novaParte.Parent = workspace
-
--- Listar todos os objetos
-for _, objeto in pairs(workspace:GetChildren()) do
-    print(objeto.Name)
-end
-
--- Encontrar objetos por nome (recursivo)
-local obj = workspace:FindFirstChild("Nome", true)
-
--- Deletar tudo no workspace
-for _, obj in pairs(workspace:GetChildren()) do
-    if obj:IsA("Model") or obj:IsA("Part") then
-        obj:Destroy()
+        
+        wait(0.1)
     end
 end
 
-**Propriedades do Workspace:**
-- Gravity: 196.2 (padrão da Terra)
-- workspace.Gravity = 50 -- gravidade da Lua
-- workspace.Gravity = 0 -- sem gravidade!
+-- Iniciar
+local jogador = game.Players:GetPlayers()[1]
+if jogador and jogador.Character then
+    seguirJogador(jogador)
+end
 
-**Raycasting (detectar objetos):**
-local origin = Vector3.new(0, 10, 0)
-local direction = Vector3.new(0, -20, 0)
-local ray = workspace:Raycast(origin, direction)
+**Path avançado com obstáculos:**
+local path = PathfindingService:CreatePath({
+    AgentRadius = 2,
+    AgentHeight = 5,
+    AgentCanJump = true,
+    WaypointSpacing = 4,
+    Costs = {
+        Water = 20 -- evitar água
+    }
+})
 
-if ray then
-    print("Atingiu: " .. ray.Instance.Name)
-end`
-      },
-
-      'leaderstats': {
-        keywords: ['leaderstats', 'placar', 'scoreboard', 'pontos', 'ranking'],
-        answer: `Leaderstats é o sistema de placar do Roblox (aparece ao pressionar TAB):
-
-**Criar leaderstats:**
-game.Players.PlayerAdded:Connect(function(player)
-    -- Criar pasta leaderstats
-    local leaderstats = Instance.new("Folder")
-    leaderstats.Name = "leaderstats"
-    leaderstats.Parent = player
-    
-    -- Adicionar estatísticas
-    local kills = Instance.new("IntValue")
-    kills.Name = "Kills"
-    kills.Value = 0
-    kills.Parent = leaderstats
-    
-    local deaths = Instance.new("IntValue")
-    deaths.Name = "Deaths"
-    deaths.Value = 0
-    deaths.Parent = leaderstats
-    
-    local coins = Instance.new("IntValue")
-    coins.Name = "Moedas"
-    coins.Value = 100
-    coins.Parent = leaderstats
-end)
-
-**Atualizar valores:**
-player.leaderstats.Kills.Value += 1
-player.leaderstats.Moedas.Value -= 50
-
-**Tipos de valores:**
-- IntValue (números inteiros)
-- NumberValue (números decimais)
-- StringValue (texto)
-- BoolValue (true/false)
-
-As stats aparecem automaticamente no placar em ordem alfabética!`
+Ótimo para criar inimigos inteligentes!`
       }
     };
 
     // Variável para controlar se está digitando
     let isTyping = false;
+    let currentKnowledgeBase = knowledgeBase;
+
+    // FUNÇÃO TOGGLE LAB MODE
+    function toggleLabMode() {
+      labModeActive = !labModeActive;
+      document.body.classList.toggle('lab-mode');
+      
+      const labModeText = document.getElementById('labModeText');
+      const assistantTitle = document.getElementById('assistantTitle');
+      const assistantSubtitle = document.getElementById('assistantSubtitle');
+      
+      if (labModeActive) {
+        labModeText.textContent = '🔬 Desativar Lab Mode';
+        assistantTitle.textContent = '🧪 Assistente Lab - Avançado';
+        assistantSubtitle.textContent = 'Tópicos avançados de Roblox Studio!';
+        currentKnowledgeBase = labKnowledgeBase;
+        updateSuggestions(true);
+      } else {
+        labModeText.textContent = '🔬 Ativar Lab Mode';
+        assistantTitle.textContent = '🤖 Assistente Roblox Studio';
+        assistantSubtitle.textContent = 'Tire suas dúvidas sobre Roblox Studio!';
+        currentKnowledgeBase = knowledgeBase;
+        updateSuggestions(false);
+      }
+    }
+
+    // ATUALIZAR SUGESTÕES
+    function updateSuggestions(labMode) {
+      const suggestionsDiv = document.getElementById('suggestions');
+      
+      if (labMode) {
+        suggestionsDiv.innerHTML = `
+          <button class="suggestion-btn" onclick="askQuestion('O que são ModuleScripts?')">ModuleScripts</button>
+          <button class="suggestion-btn" onclick="askQuestion('Como usar HttpService?')">HttpService</button>
+          <button class="suggestion-btn" onclick="askQuestion('O que são Metatables?')">Metatables</button>
+          <button class="suggestion-btn" onclick="askQuestion('Como usar ContextActionService?')">ContextActionService</button>
+          <button class="suggestion-btn" onclick="askQuestion('Como fazer Pathfinding?')">Pathfinding</button>
+        `;
+      } else {
+        suggestionsDiv.innerHTML = `
+          <button class="suggestion-btn" onclick="askQuestion('Como criar um script em Lua?')">Como criar um script?</button>
+          <button class="suggestion-btn" onclick="askQuestion('O que é DataStore?')">O que é DataStore?</button>
+          <button class="suggestion-btn" onclick="askQuestion('Como fazer um sistema de moedas?')">Sistema de moedas</button>
+          <button class="suggestion-btn" onclick="askQuestion('Como criar uma GUI?')">Criar GUI</button>
+          <button class="suggestion-btn" onclick="askQuestion('O que são RemoteEvents?')">RemoteEvents</button>
+        `;
+      }
+    }
 
     // SISTEMA DE BUSCA INTELIGENTE
     function findBestAnswer(userQuestion) {
@@ -1001,7 +1257,7 @@ As stats aparecem automaticamente no placar em ordem alfabética!`
       let bestMatch = null;
       let bestScore = 0;
 
-      for (const [key, data] of Object.entries(knowledgeBase)) {
+      for (const [key, data] of Object.entries(currentKnowledgeBase)) {
         let score = 0;
         
         for (const keyword of data.keywords) {
@@ -1020,6 +1276,19 @@ As stats aparecem automaticamente no placar em ordem alfabética!`
         return bestMatch;
       }
 
+      if (labModeActive) {
+        return `Hmm, não tenho certeza sobre isso ainda. 🧪
+
+Mas no Lab Mode posso te ajudar com:
+• ModuleScripts - organização de código
+• HttpService - requisições HTTP e APIs
+• Metatables - programação orientada a objetos
+• ContextActionService - controles multi-plataforma
+• PathfindingService - navegação de NPCs
+
+Tente reformular sua pergunta ou escolha uma das sugestões!`;
+      }
+
       return `Hmm, não tenho certeza sobre isso ainda. 🤔
 
 Mas posso te ajudar com:
@@ -1028,9 +1297,6 @@ Mas posso te ajudar com:
 • Sistemas de moedas e economia
 • Criação de GUIs e interfaces
 • RemoteEvents e comunicação cliente-servidor
-• TweenService e animações
-• Parts, Tools e Humanoids
-• Leaderstats e placar
 
 Tente reformular sua pergunta ou escolha uma das sugestões abaixo!`;
     }
@@ -1038,7 +1304,7 @@ Tente reformular sua pergunta ou escolha uma das sugestões abaixo!`;
     // EFEITO DE DIGITAÇÃO LETRA POR LETRA
     function typeMessage(text, element, callback) {
       let index = 0;
-      const speed = 15; // velocidade de digitação (ms por letra)
+      const speed = 15;
       
       function type() {
         if (index < text.length) {
@@ -1056,7 +1322,7 @@ Tente reformular sua pergunta ou escolha uma das sugestões abaixo!`;
 
     // FUNÇÕES DE CHAT
     function sendMessage() {
-      if (isTyping) return; // Impede envio durante digitação
+      if (isTyping) return;
       
       const input = document.getElementById('chatInput');
       const sendBtn = document.getElementById('sendBtn');
@@ -1064,26 +1330,20 @@ Tente reformular sua pergunta ou escolha uma das sugestões abaixo!`;
       
       if (message === '') return;
 
-      // Desabilitar input durante resposta
       input.disabled = true;
       sendBtn.disabled = true;
 
-      // Adicionar mensagem do usuário
       addMessage(message, 'user');
       input.value = '';
 
-      // Mostrar indicador de digitação
       const typing = document.getElementById('typingIndicator');
       typing.classList.add('show');
 
-      // Simular delay de processamento
       setTimeout(() => {
         typing.classList.remove('show');
         
-        // Buscar resposta
         const answer = findBestAnswer(message);
         addBotMessageWithTyping(answer, () => {
-          // Reabilitar input após terminar de digitar
           input.disabled = false;
           sendBtn.disabled = false;
           input.focus();
@@ -1107,7 +1367,7 @@ Tente reformular sua pergunta ou escolha uma das sugestões abaixo!`;
       messageDiv.className = 'message bot';
       
       const headerDiv = document.createElement('strong');
-      headerDiv.textContent = 'Assistente Studio HD';
+      headerDiv.textContent = labModeActive ? 'Assistente Lab HD' : 'Assistente Studio HD';
       messageDiv.appendChild(headerDiv);
       
       const contentDiv = document.createElement('span');
@@ -1115,7 +1375,6 @@ Tente reformular sua pergunta ou escolha uma das sugestões abaixo!`;
       
       messagesContainer.appendChild(messageDiv);
       
-      // Iniciar efeito de digitação
       typeMessage(text, contentDiv, callback);
     }
 
@@ -1148,6 +1407,9 @@ Tente reformular sua pergunta ou escolha uma das sugestões abaixo!`;
       
       document.getElementById('home').style.display = 'flex';
     }
+
+    // INICIALIZAR SUGESTÕES
+    updateSuggestions(false);
   </script>
 
 </body>
