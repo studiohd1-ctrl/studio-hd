@@ -25,33 +25,8 @@
       background: radial-gradient(circle at top, #2d0a27, #000);
     }
 
-    /* BOTÃO LAB MODE (FIXO NO CANTO) */
-    .lab-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      padding: 12px 25px;
-      background: rgba(155,89,182,0.3);
-      border: 2px solid #9b59b6;
-      border-radius: 25px;
-      color: #9b59b6;
-      cursor: pointer;
-      z-index: 9999;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 20px rgba(155,89,182,0.3);
-    }
-
-    .lab-toggle:hover {
-      background: rgba(155,89,182,0.5);
-      transform: scale(1.05);
-    }
-
-    body.lab-mode .lab-toggle {
-      background: rgba(255,105,180,0.3);
-      border-color: #ff69b4;
-      color: #ff69b4;
-      box-shadow: 0 0 20px rgba(255,105,180,0.5);
+    body.matrix-mode {
+      background: radial-gradient(circle at top, #0a2f0a, #000);
     }
 
     /* CONTAINER PRINCIPAL */
@@ -85,6 +60,15 @@
       background-clip: text;
     }
 
+    body.matrix-mode h1 {
+      text-shadow: 0 0 30px #00ff41;
+      background: linear-gradient(45deg, #00ff41, #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-family: 'Courier New', monospace;
+    }
+
     .subtitle {
       font-size: 1.2rem;
       color: #aaa;
@@ -92,11 +76,17 @@
       letter-spacing: 1px;
     }
 
+    body.matrix-mode .subtitle {
+      font-family: 'Courier New', monospace;
+      color: #00ff41;
+    }
+
     .btn-group {
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
       justify-content: center;
+      max-width: 800px;
     }
 
     .btn {
@@ -132,6 +122,19 @@
       box-shadow: 0 0 40px #ff69b4;
     }
 
+    body.matrix-mode .btn {
+      color: #00ff41;
+      border-color: #00ff41;
+      box-shadow: 0 0 25px rgba(0,255,65,0.4);
+      font-family: 'Courier New', monospace;
+    }
+
+    body.matrix-mode .btn:hover {
+      background: #00ff41;
+      color: #000;
+      box-shadow: 0 0 40px #00ff41;
+    }
+
     .btn.secondary {
       color: #ff6b6b;
       border-color: #ff6b6b;
@@ -154,6 +157,17 @@
       box-shadow: 0 0 40px #ffb6c1;
     }
 
+    body.matrix-mode .btn.secondary {
+      color: #39ff14;
+      border-color: #39ff14;
+      box-shadow: 0 0 25px rgba(57,255,20,0.4);
+    }
+
+    body.matrix-mode .btn.secondary:hover {
+      background: #39ff14;
+      box-shadow: 0 0 40px #39ff14;
+    }
+
     .btn.assistant {
       color: #9b59b6;
       border-color: #9b59b6;
@@ -174,6 +188,87 @@
     body.lab-mode .btn.assistant:hover {
       background: #ff1493;
       box-shadow: 0 0 40px #ff1493;
+    }
+
+    body.matrix-mode .btn.assistant {
+      color: #0f0;
+      border-color: #0f0;
+      box-shadow: 0 0 25px rgba(0,255,0,0.4);
+    }
+
+    body.matrix-mode .btn.assistant:hover {
+      background: #0f0;
+      box-shadow: 0 0 40px #0f0;
+    }
+
+    .btn.lab {
+      color: #9b59b6;
+      border-color: #9b59b6;
+      box-shadow: 0 0 25px rgba(155,89,182,0.4);
+    }
+
+    .btn.lab:hover {
+      background: #9b59b6;
+      box-shadow: 0 0 40px #9b59b6;
+    }
+
+    body.lab-mode .btn.lab {
+      background: #ff69b4;
+      color: #000;
+      border-color: #ff69b4;
+      box-shadow: 0 0 40px rgba(255,105,180,0.8);
+    }
+
+    body.matrix-mode .btn.lab {
+      color: #ff69b4;
+      border-color: #ff69b4;
+      box-shadow: 0 0 25px rgba(255,105,180,0.4);
+    }
+
+    .btn.quiz {
+      color: #ffd700;
+      border-color: #ffd700;
+      box-shadow: 0 0 25px rgba(255,215,0,0.4);
+    }
+
+    .btn.quiz:hover {
+      background: #ffd700;
+      color: #000;
+      box-shadow: 0 0 40px #ffd700;
+    }
+
+    body.lab-mode .btn.quiz {
+      color: #ffd700;
+      border-color: #ffd700;
+    }
+
+    body.matrix-mode .btn.quiz {
+      color: #ffd700;
+      border-color: #ffd700;
+    }
+
+    .btn.matrix {
+      color: #00ff41;
+      border-color: #00ff41;
+      box-shadow: 0 0 25px rgba(0,255,65,0.4);
+      display: none;
+      font-family: 'Courier New', monospace;
+    }
+
+    .btn.matrix.unlocked {
+      display: inline-block;
+    }
+
+    .btn.matrix:hover {
+      background: #00ff41;
+      color: #000;
+      box-shadow: 0 0 40px #00ff41;
+    }
+
+    body.matrix-mode .btn.matrix {
+      background: #00ff41;
+      color: #000;
+      box-shadow: 0 0 40px rgba(0,255,65,0.8);
     }
 
     /* PÁGINAS */
@@ -203,10 +298,178 @@
       text-shadow: 0 0 20px #ff69b4;
     }
 
+    body.matrix-mode .page h2 {
+      color: #00ff41;
+      text-shadow: 0 0 20px #00ff41;
+      font-family: 'Courier New', monospace;
+    }
+
     .page p {
       margin-bottom: 20px;
       font-size: 1.1rem;
       color: #ddd;
+    }
+
+    body.matrix-mode .page p {
+      font-family: 'Courier New', monospace;
+      color: #0f0;
+    }
+
+    /* QUIZ */
+    #quiz {
+      max-width: 800px;
+    }
+
+    .quiz-container {
+      background: rgba(15,32,39,0.8);
+      border: 2px solid #ffd700;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 0 40px rgba(255,215,0,0.4);
+      animation: slideUp 0.8s ease;
+    }
+
+    body.matrix-mode .quiz-container {
+      background: rgba(0,20,0,0.8);
+      border-color: #00ff41;
+      box-shadow: 0 0 40px rgba(0,255,65,0.4);
+    }
+
+    .question-counter {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #ffd700;
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+
+    body.matrix-mode .question-counter {
+      color: #00ff41;
+      font-family: 'Courier New', monospace;
+    }
+
+    .question-text {
+      font-size: 1.5rem;
+      color: #fff;
+      margin-bottom: 30px;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    body.matrix-mode .question-text {
+      font-family: 'Courier New', monospace;
+      color: #0f0;
+    }
+
+    .answers {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .answer-btn {
+      padding: 20px;
+      background: rgba(255,215,0,0.1);
+      border: 2px solid #ffd700;
+      border-radius: 15px;
+      color: #fff;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      text-align: left;
+    }
+
+    .answer-btn:hover {
+      background: rgba(255,215,0,0.3);
+      transform: translateX(10px);
+      box-shadow: 0 0 20px rgba(255,215,0,0.5);
+    }
+
+    body.matrix-mode .answer-btn {
+      background: rgba(0,255,65,0.1);
+      border-color: #00ff41;
+      font-family: 'Courier New', monospace;
+      color: #0f0;
+    }
+
+    body.matrix-mode .answer-btn:hover {
+      background: rgba(0,255,65,0.3);
+      box-shadow: 0 0 20px rgba(0,255,65,0.5);
+    }
+
+    .answer-btn.correct {
+      background: rgba(0,255,0,0.3);
+      border-color: #0f0;
+      animation: correctPulse 0.5s;
+    }
+
+    .answer-btn.wrong {
+      background: rgba(255,0,0,0.3);
+      border-color: #f00;
+      animation: wrongShake 0.5s;
+    }
+
+    @keyframes correctPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @keyframes wrongShake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-10px); }
+      75% { transform: translateX(10px); }
+    }
+
+    .quiz-result {
+      text-align: center;
+      padding: 40px;
+    }
+
+    .quiz-result h3 {
+      font-size: 3rem;
+      color: #ffd700;
+      margin-bottom: 20px;
+      text-shadow: 0 0 30px #ffd700;
+      animation: resultGlow 2s infinite;
+    }
+
+    body.matrix-mode .quiz-result h3 {
+      color: #00ff41;
+      text-shadow: 0 0 30px #00ff41;
+      font-family: 'Courier New', monospace;
+    }
+
+    @keyframes resultGlow {
+      0%, 100% { text-shadow: 0 0 30px #ffd700; }
+      50% { text-shadow: 0 0 50px #ffd700, 0 0 80px #ffd700; }
+    }
+
+    .score-display {
+      font-size: 2rem;
+      margin: 30px 0;
+      color: #fff;
+    }
+
+    body.matrix-mode .score-display {
+      color: #0f0;
+      font-family: 'Courier New', monospace;
+    }
+
+    .unlock-message {
+      background: linear-gradient(45deg, #00ff41, #0f0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 20px 0;
+      animation: unlockGlow 1.5s infinite;
+      font-family: 'Courier New', monospace;
+    }
+
+    @keyframes unlockGlow {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
     }
 
     /* ASSISTENTE */
@@ -232,6 +495,12 @@
       box-shadow: 0 0 40px rgba(255,105,180,0.3);
     }
 
+    body.matrix-mode .chat-container {
+      background: rgba(0,20,0,0.8);
+      border-color: #00ff41;
+      box-shadow: 0 0 40px rgba(0,255,65,0.5);
+    }
+
     .chat-messages {
       flex: 1;
       overflow-y: auto;
@@ -244,6 +513,10 @@
 
     body.lab-mode .chat-messages {
       scrollbar-color: #ff69b4 rgba(0,0,0,0.3);
+    }
+
+    body.matrix-mode .chat-messages {
+      scrollbar-color: #00ff41 rgba(0,0,0,0.3);
     }
 
     .chat-messages::-webkit-scrollbar {
@@ -263,6 +536,10 @@
 
     body.lab-mode .chat-messages::-webkit-scrollbar-thumb {
       background: #ff69b4;
+    }
+
+    body.matrix-mode .chat-messages::-webkit-scrollbar-thumb {
+      background: #00ff41;
     }
 
     .message {
@@ -292,6 +569,13 @@
       border-color: #ff69b4;
     }
 
+    body.matrix-mode .message.user {
+      background: rgba(0,255,65,0.2);
+      border-color: #00ff41;
+      font-family: 'Courier New', monospace;
+      color: #0f0;
+    }
+
     .message.bot {
       background: rgba(155,89,182,0.2);
       border: 1px solid #9b59b6;
@@ -303,6 +587,13 @@
       border-color: #ff1493;
     }
 
+    body.matrix-mode .message.bot {
+      background: rgba(0,255,0,0.2);
+      border-color: #0f0;
+      font-family: 'Courier New', monospace;
+      color: #0f0;
+    }
+
     .message.bot strong {
       color: #9b59b6;
       display: block;
@@ -311,6 +602,10 @@
 
     body.lab-mode .message.bot strong {
       color: #ff69b4;
+    }
+
+    body.matrix-mode .message.bot strong {
+      color: #00ff41;
     }
 
     .typing-indicator {
@@ -327,6 +622,11 @@
     body.lab-mode .typing-indicator {
       background: rgba(255,20,147,0.2);
       border-color: #ff1493;
+    }
+
+    body.matrix-mode .typing-indicator {
+      background: rgba(0,255,0,0.2);
+      border-color: #0f0;
     }
 
     .typing-indicator.show {
@@ -347,6 +647,10 @@
 
     body.lab-mode .typing-indicator span {
       background: #ff69b4;
+    }
+
+    body.matrix-mode .typing-indicator span {
+      background: #0f0;
     }
 
     .typing-indicator span:nth-child(2) {
@@ -393,6 +697,17 @@
       box-shadow: 0 0 15px rgba(255,105,180,0.5);
     }
 
+    body.matrix-mode .chat-input {
+      border-color: #00ff41;
+      font-family: 'Courier New', monospace;
+      color: #0f0;
+    }
+
+    body.matrix-mode .chat-input:focus {
+      border-color: #0f0;
+      box-shadow: 0 0 15px rgba(0,255,65,0.5);
+    }
+
     .send-btn {
       padding: 15px 30px;
       background: #9b59b6;
@@ -417,6 +732,17 @@
     body.lab-mode .send-btn:hover {
       background: #ff1493;
       box-shadow: 0 0 20px rgba(255,105,180,0.8);
+    }
+
+    body.matrix-mode .send-btn {
+      background: #00ff41;
+      color: #000;
+      font-family: 'Courier New', monospace;
+    }
+
+    body.matrix-mode .send-btn:hover {
+      background: #0f0;
+      box-shadow: 0 0 20px rgba(0,255,65,0.8);
     }
 
     .send-btn:disabled {
@@ -458,6 +784,17 @@
       background: rgba(255,105,180,0.4);
     }
 
+    body.matrix-mode .suggestion-btn {
+      background: rgba(0,255,65,0.2);
+      border-color: #00ff41;
+      color: #00ff41;
+      font-family: 'Courier New', monospace;
+    }
+
+    body.matrix-mode .suggestion-btn:hover {
+      background: rgba(0,255,65,0.4);
+    }
+
     /* GALERIA */
     .gallery-grid {
       display: grid;
@@ -488,6 +825,10 @@
       background: #ff69b4;
     }
 
+    body.matrix-mode .gallery-grid::-webkit-scrollbar-thumb {
+      background: #00ff41;
+    }
+
     .gallery-item {
       background: rgba(0,247,255,0.05);
       border: 1px solid #00f7ff;
@@ -513,6 +854,16 @@
       background: rgba(255,105,180,0.1);
     }
 
+    body.matrix-mode .gallery-item {
+      background: rgba(0,255,65,0.05);
+      border-color: #00ff41;
+    }
+
+    body.matrix-mode .gallery-item:hover {
+      box-shadow: 0 10px 30px rgba(0,255,65,0.3);
+      background: rgba(0,255,65,0.1);
+    }
+
     .gallery-item h3 {
       color: #00f7ff;
       margin-bottom: 10px;
@@ -523,9 +874,19 @@
       color: #ff69b4;
     }
 
+    body.matrix-mode .gallery-item h3 {
+      color: #00ff41;
+      font-family: 'Courier New', monospace;
+    }
+
     .gallery-item p {
       font-size: 0.95rem;
       color: #aaa;
+    }
+
+    body.matrix-mode .gallery-item p {
+      font-family: 'Courier New', monospace;
+      color: #0f0;
     }
 
     /* INFO PAGE */
@@ -552,6 +913,10 @@
 
     body.lab-mode .info-content::-webkit-scrollbar-thumb {
       background: #ff69b4;
+    }
+
+    body.matrix-mode .info-content::-webkit-scrollbar-thumb {
+      background: #00ff41;
     }
 
     /* BOTÃO VOLTAR */
@@ -582,6 +947,17 @@
       color: #000;
     }
 
+    body.matrix-mode .back-btn {
+      border-color: #00ff41;
+      color: #00ff41;
+      font-family: 'Courier New', monospace;
+    }
+
+    body.matrix-mode .back-btn:hover {
+      background: #00ff41;
+      color: #000;
+    }
+
     /* FOOTER */
     footer {
       text-align: center;
@@ -594,6 +970,12 @@
 
     body.lab-mode footer {
       border-top-color: rgba(255,105,180,0.1);
+    }
+
+    body.matrix-mode footer {
+      border-top-color: rgba(0,255,65,0.1);
+      font-family: 'Courier New', monospace;
+      color: #0f0;
     }
 
     /* ANIMAÇÕES */
@@ -642,11 +1024,12 @@
         max-height: 400px;
       }
 
-      .lab-toggle {
-        top: 10px;
-        right: 10px;
-        padding: 10px 20px;
-        font-size: 0.9rem;
+      .question-text {
+        font-size: 1.2rem;
+      }
+
+      .quiz-result h3 {
+        font-size: 2rem;
       }
     }
 
@@ -675,15 +1058,14 @@
       .chat-container {
         height: 450px;
       }
+
+      .quiz-container {
+        padding: 20px;
+      }
     }
   </style>
 </head>
 <body>
-
-  <!-- BOTÃO LAB MODE -->
-  <button class="lab-toggle" onclick="toggleLabMode()">
-    <span id="labModeText">🔬 Ativar Lab Mode</span>
-  </button>
 
   <!-- HOME -->
   <div class="container" id="home">
@@ -695,6 +1077,9 @@
         <button class="btn" onclick="showPage('info')">Informações Studio</button>
         <button class="btn secondary" onclick="showPage('gallery')">Galeria de Projetos</button>
         <button class="btn assistant" onclick="showPage('assistant')">🤖 Assistente IA</button>
+        <button class="btn lab" onclick="toggleLabMode()">🔬 Lab Mode</button>
+        <button class="btn quiz" onclick="openQuiz()">🎯 Quiz Studio</button>
+        <button class="btn matrix" id="matrixBtn" onclick="toggleMatrixMode()">⚡ Modo Matrix</button>
       </div>
     </div>
   </div>
@@ -773,6 +1158,24 @@
     <button class="back-btn" onclick="goHome()">← Voltar ao Início</button>
   </div>
 
+  <!-- PÁGINA QUIZ -->
+  <div class="page" id="quiz">
+    <h2>🎯 Quiz Roblox Studio</h2>
+    <p style="text-align: center; margin-bottom: 30px;">Teste seus conhecimentos e desbloqueie o Modo Matrix!</p>
+
+    <div class="quiz-container" id="quizContainer">
+      <div class="question-counter" id="questionCounter">Pergunta 1 de 10</div>
+      <div class="question-text" id="questionText"></div>
+      <div class="answers" id="answersContainer"></div>
+    </div>
+
+    <div class="quiz-result" id="quizResult" style="display: none;">
+      <!-- Resultado aparece aqui -->
+    </div>
+
+    <button class="back-btn" onclick="goHome()">← Voltar ao Início</button>
+  </div>
+
   <!-- PÁGINA ASSISTENTE -->
   <div class="page" id="assistant">
     <h2 id="assistantTitle">🤖 Assistente Roblox Studio</h2>
@@ -816,8 +1219,92 @@
   </footer>
 
   <script>
-    // ESTADO DO LAB MODE
+    // ESTADO DOS MODOS
     let labModeActive = false;
+    let matrixModeActive = false;
+
+    // QUIZ
+    const quizQuestions = [
+      {
+        question: "Qual a linguagem de programação usada no Roblox Studio?",
+        answers: ["JavaScript", "Python", "Lua", "C++"],
+        correct: 2
+      },
+      {
+        question: "Onde você deve colocar scripts que rodam no servidor?",
+        answers: ["StarterGui", "ServerScriptService", "ReplicatedStorage", "Workspace"],
+        correct: 1
+      },
+      {
+        question: "O que é um RemoteEvent?",
+        answers: [
+          "Um tipo de peça do jogo",
+          "Uma forma de comunicação entre cliente e servidor",
+          "Um sistema de física",
+          "Uma animação"
+        ],
+        correct: 1
+      },
+      {
+        question: "Qual serviço é usado para salvar dados permanentemente?",
+        answers: ["DataStoreService", "SaveService", "DatabaseService", "StorageService"],
+        correct: 0
+      },
+      {
+        question: "O que faz o método :Clone() em Lua?",
+        answers: [
+          "Deleta um objeto",
+          "Cria uma cópia de um objeto",
+          "Move um objeto",
+          "Muda a cor de um objeto"
+        ],
+        correct: 1
+      },
+      {
+        question: "Qual propriedade torna uma Part invisível?",
+        answers: ["Visible = false", "Transparency = 1", "Hidden = true", "Opacity = 0"],
+        correct: 1
+      },
+      {
+        question: "O que é TweenService?",
+        answers: [
+          "Serviço para sons",
+          "Serviço para criar animações suaves",
+          "Serviço para física",
+          "Serviço para iluminação"
+        ],
+        correct: 1
+      },
+      {
+        question: "Qual evento detecta quando um jogador entra no jogo?",
+        answers: [
+          "game.Players.PlayerJoined",
+          "game.Players.PlayerAdded",
+          "game.Players.NewPlayer",
+          "game.Players.OnJoin"
+        ],
+        correct: 1
+      },
+      {
+        question: "O que significa 'Anchored' em uma Part?",
+        answers: [
+          "A peça pode ser movida",
+          "A peça é invisível",
+          "A peça está fixa e não cai",
+          "A peça tem colisão"
+        ],
+        correct: 2
+      },
+      {
+        question: "Qual é a pasta padrão para mostrar stats dos jogadores no placar?",
+        answers: ["PlayerStats", "leaderstats", "Stats", "Scoreboard"],
+        correct: 1
+      }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+    let quizCompleted = false;
 
     // BASE DE CONHECIMENTO NORMAL
     const knowledgeBase = {
@@ -961,7 +1448,7 @@ end)
       }
     };
 
-    // BASE DE CONHECIMENTO LAB MODE (TÓPICOS AVANÇADOS)
+    // BASE DE CONHECIMENTO LAB MODE
     const labKnowledgeBase = {
       'modulescript': {
         keywords: ['modulescript', 'module', 'modulo', 'módulo', 'organizar código', 'organizar codigo'],
@@ -1200,45 +1687,739 @@ local path = PathfindingService:CreatePath({
       }
     };
 
+    // BASE DE CONHECIMENTO MATRIX MODE (ULTRA AVANÇADO)
+    const matrixKnowledgeBase = {
+      'debounce': {
+        keywords: ['debounce', 'cooldown', 'spam', 'anti spam', 'delay'],
+        answer: `> MATRIZ_SYSTEM: Debounce avançado para prevenir spam
+
+**Sistema básico de debounce:**
+local debounce = false
+
+script.Parent.Touched:Connect(function(hit)
+    if debounce then return end
+    debounce = true
+    
+    print("Tocou!")
+    -- Seu código aqui
+    
+    wait(1) -- cooldown
+    debounce = false
+end)
+
+**Debounce por jogador (melhor):**
+local cooldowns = {}
+
+script.Parent.Touched:Connect(function(hit)
+    local player = game.Players:GetPlayerFromCharacter(hit.Parent)
+    if not player then return end
+    
+    if cooldowns[player.UserId] then return end
+    cooldowns[player.UserId] = true
+    
+    print(player.Name .. " tocou!")
+    -- Seu código
+    
+    task.wait(2)
+    cooldowns[player.UserId] = nil
+end)
+
+**Sistema profissional com timestamps:**
+local lastUse = {}
+local COOLDOWN_TIME = 5
+
+local function canUse(userId)
+    local currentTime = tick()
+    local lastTime = lastUse[userId] or 0
+    
+    if currentTime - lastTime >= COOLDOWN_TIME then
+        lastUse[userId] = currentTime
+        return true
+    end
+    
+    return false, COOLDOWN_TIME - (currentTime - lastTime)
+end
+
+-- Uso
+if canUse(player.UserId) then
+    print("Ação executada!")
+else
+    local timeLeft = select(2, canUse(player.UserId))
+    print("Aguarde " .. math.ceil(timeLeft) .. "s")
+end
+
+> VANTAGEM: Previne exploits e melhora performance`
+      },
+
+      'memoryleak': {
+        keywords: ['memory leak', 'vazamento', 'memoria', 'memória', 'garbage', 'limpeza'],
+        answer: `> MATRIZ_SYSTEM: Prevenção de Memory Leaks
+
+**O que são Memory Leaks:**
+Objetos que não são coletados pelo garbage collector, causando lag progressivo.
+
+**Causas comuns:**
+1. Conexões não desconectadas
+2. Threads infinitas sem cleanup
+3. Referências circulares
+4. Tables não limpas
+
+**Exemplo RUIM (memory leak):**
+game.Players.PlayerAdded:Connect(function(player)
+    local connection
+    connection = player.CharacterAdded:Connect(function()
+        print("Spawn!")
+    end)
+    -- PROBLEMA: connection nunca é desconectada!
+end)
+
+**Exemplo BOM (sem leak):**
+game.Players.PlayerAdded:Connect(function(player)
+    local connection
+    connection = player.CharacterAdded:Connect(function()
+        print("Spawn!")
+    end)
+    
+    -- Cleanup quando jogador sair
+    player.AncestryChanged:Connect(function()
+        if connection then
+            connection:Disconnect()
+            connection = nil
+        end
+    end)
+end)
+
+**Sistema profissional de cleanup:**
+local Janitor = {}
+Janitor.__index = Janitor
+
+function Janitor.new()
+    return setmetatable({
+        _tasks = {}
+    }, Janitor)
+end
+
+function Janitor:Add(task)
+    table.insert(self._tasks, task)
+    return task
+end
+
+function Janitor:Cleanup()
+    for _, task in pairs(self._tasks) do
+        if typeof(task) == "RBXScriptConnection" then
+            task:Disconnect()
+        elseif typeof(task) == "Instance" then
+            task:Destroy()
+        elseif typeof(task) == "function" then
+            task()
+        end
+    end
+    table.clear(self._tasks)
+end
+
+-- Uso
+local janitor = Janitor.new()
+
+janitor:Add(workspace.Part.Touched:Connect(function() end))
+janitor:Add(workspace.SomeObject)
+
+-- Cleanup tudo de uma vez
+janitor:Cleanup()
+
+> CRÍTICO: Sempre desconecte eventos e limpe referências!`
+      },
+
+      'anticheat': {
+        keywords: ['anti cheat', 'anticheat', 'hack', 'exploit', 'segurança', 'seguranca', 'cheater'],
+        answer: `> MATRIZ_SYSTEM: Sistema Anti-Cheat Avançado
+
+**Princípios fundamentais:**
+1. NUNCA confie no cliente
+2. Valide TUDO no servidor
+3. Use sanity checks
+4. Detecte padrões anormais
+
+**Anti Speed Hack:**
+-- ServerScript
+local Players = game:GetService("Players")
+local MAX_SPEED = 16
+local TOLERANCE = 1.5
+
+Players.PlayerAdded:Connect(function(player)
+    player.CharacterAdded:Connect(function(character)
+        local humanoid = character:WaitForChild("Humanoid")
+        
+        humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+            if humanoid.WalkSpeed > MAX_SPEED * TOLERANCE then
+                humanoid.WalkSpeed = MAX_SPEED
+                warn(player.Name .. " tentou usar speed hack!")
+                -- Opcional: kick ou ban
+            end
+        end)
+    end)
+end)
+
+**Anti Teleport:**
+local lastPosition = {}
+
+game:GetService("RunService").Heartbeat:Connect(function()
+    for _, player in pairs(Players:GetPlayers()) do
+        if player.Character and player.Character.PrimaryPart then
+            local pos = player.Character.PrimaryPart.Position
+            local last = lastPosition[player.UserId]
+            
+            if last then
+                local distance = (pos - last).Magnitude
+                local maxDistance = MAX_SPEED * 0.1 -- por frame
+                
+                if distance > maxDistance then
+                    warn(player.Name .. " possível teleport!")
+                    player.Character.PrimaryPart.Position = last
+                end
+            end
+            
+            lastPosition[player.UserId] = pos
+        end
+    end
+end)
+
+**Validação de RemoteEvents:**
+-- Cliente
+ReplicatedStorage.DarMoedas:FireServer(1000000) -- HACKER!
+
+-- Servidor (CORRETO)
+ReplicatedStorage.DarMoedas.OnServerEvent:Connect(function(player, amount)
+    -- VALIDAR TUDO
+    if typeof(amount) ~= "number" then return end
+    if amount < 0 or amount > 100 then return end
+    if amount % 1 ~= 0 then return end -- não é inteiro
+    
+    -- Verificar se jogador merece moedas
+    if not player:GetAttribute("CompletouQuest") then return end
+    
+    -- OK, dar moedas
+    player.leaderstats.Moedas.Value += amount
+end)
+
+**Sistema de detecção de padrões:**
+local suspiciousActivity = {}
+
+local function flagPlayer(player, reason)
+    if not suspiciousActivity[player.UserId] then
+        suspiciousActivity[player.UserId] = {}
+    end
+    
+    table.insert(suspiciousActivity[player.UserId], {
+        reason = reason,
+        time = os.time()
+    })
+    
+    -- Se muitas flags, tomar ação
+    if #suspiciousActivity[player.UserId] > 10 then
+        player:Kick("Atividade suspeita detectada")
+    end
+end
+
+> REGRA DE OURO: Cliente é SEMPRE hostil. Valide no servidor!`
+      },
+
+      'optimization': {
+        keywords: ['otimização', 'otimizacao', 'performance', 'lag', 'fps', 'desempenho'],
+        answer: `> MATRIZ_SYSTEM: Otimização Extrema de Performance
+
+**1. Use task.wait() ao invés de wait():**
+-- RUIM
+wait(1)
+
+-- BOM (70% mais rápido)
+task.wait(1)
+
+**2. Cache referências:**
+-- RUIM (busca toda frame)
+while true do
+    workspace.Part.Position = Vector3.new(0, 5, 0)
+    task.wait()
+end
+
+-- BOM (busca uma vez)
+local part = workspace.Part
+while true do
+    part.Position = Vector3.new(0, 5, 0)
+    task.wait()
+end
+
+**3. Use indices numéricos ao invés de pairs:**
+-- RUIM
+for _, player in pairs(Players:GetPlayers()) do
+    print(player.Name)
+end
+
+-- BOM (mais rápido)
+local players = Players:GetPlayers()
+for i = 1, #players do
+    print(players[i].Name)
+end
+
+**4. Evite :FindFirstChild() em loops:**
+-- RUIM
+for i = 1, 1000 do
+    local part = workspace:FindFirstChild("Part" .. i)
+end
+
+-- BOM (cache)
+local parts = {}
+for i = 1, 1000 do
+    parts[i] = workspace["Part" .. i]
+end
+
+**5. Use Region3 para detecção:**
+-- RUIM (verifica todas as parts)
+for _, part in pairs(workspace:GetDescendants()) do
+    if (part.Position - centerPos).Magnitude < 50 then
+        -- fazer algo
+    end
+end
+
+-- BOM (só parts na região)
+local region = Region3.new(
+    centerPos - Vector3.new(50, 50, 50),
+    centerPos + Vector3.new(50, 50, 50)
+)
+local parts = workspace:FindPartsInRegion3(region)
+
+**6. Desative renderização de objetos distantes:**
+local function updateVisibility(player)
+    local char = player.Character
+    if not char then return end
+    
+    for _, part in pairs(workspace.Objects:GetChildren()) do
+        local distance = (part.Position - char.PrimaryPart.Position).Magnitude
+        
+        if distance > 200 then
+            part.Transparency = 1
+            part.CanCollide = false
+        else
+            part.Transparency = 0
+            part.CanCollide = true
+        end
+    end
+end
+
+**7. Agrupe operações batch:**
+-- RUIM (muitas operações separadas)
+for i = 1, 100 do
+    Instance.new("Part", workspace)
+end
+
+-- BOM (cria de uma vez, depois parent)
+local parts = {}
+for i = 1, 100 do
+    parts[i] = Instance.new("Part")
+end
+for _, part in pairs(parts) do
+    part.Parent = workspace
+end
+
+> RESULTADO: 10x mais FPS em jogos complexos!`
+      },
+
+      'networking': {
+        keywords: ['network', 'rede', 'replicação', 'replicacao', 'bandwidth', 'latencia', 'latência'],
+        answer: `> MATRIZ_SYSTEM: Otimização de Networking
+
+**Problema: RemoteEvents custam bandwidth**
+
+**1. Comprima dados:**
+-- RUIM (envia muito dado)
+RemoteEvent:FireClient(player, {
+    PlayerName = "João",
+    Position = Vector3.new(10.123456, 5.789012, 3.456789),
+    Health = 100,
+    MaxHealth = 100,
+    Alive = true
+})
+
+-- BOM (compacto)
+RemoteEvent:FireClient(player, {
+    Vector3.new(10.1, 5.8, 3.5), -- arredondado
+    100 -- só health (assumir max=100)
+    -- não precisa enviar nome/alive
+})
+
+**2. Use FireAllClients com throttle:**
+local lastUpdate = 0
+local UPDATE_RATE = 0.1 -- 10x por segundo
+
+RunService.Heartbeat:Connect(function()
+    if tick() - lastUpdate < UPDATE_RATE then return end
+    lastUpdate = tick()
+    
+    -- Enviar update
+    UpdateEvent:FireAllClients(getData())
+end)
+
+**3. Replique só o necessário:**
+-- Sistema de visibilidade
+local function getVisiblePlayers(player)
+    local visible = {}
+    local myPos = player.Character.PrimaryPart.Position
+    
+    for _, otherPlayer in pairs(Players:GetPlayers()) do
+        if otherPlayer ~= player and otherPlayer.Character then
+            local dist = (otherPlayer.Character.PrimaryPart.Position - myPos).Magnitude
+            
+            if dist < 200 then -- só jogadores próximos
+                table.insert(visible, {
+                    otherPlayer.UserId,
+                    otherPlayer.Character.PrimaryPart.Position
+                })
+            end
+        end
+    end
+    
+    return visible
+end
+
+-- Enviar só jogadores visíveis
+UpdatePlayers:FireClient(player, getVisiblePlayers(player))
+
+**4. Use Unreliable RemoteEvents quando possível:**
+-- Para dados que podem ser perdidos (posição)
+local unreliableEvent = Instance.new("UnreliableRemoteEvent")
+unreliableEvent.Parent = ReplicatedStorage
+
+-- Cliente envia posição (ok perder alguns frames)
+unreliableEvent:FireServer(character.PrimaryPart.Position)
+
+**5. Agrupe múltiplos eventos:**
+-- RUIM (3 network calls)
+Event1:FireServer(data1)
+Event2:FireServer(data2)
+Event3:FireServer(data3)
+
+-- BOM (1 network call)
+BatchEvent:FireServer({
+    type1 = data1,
+    type2 = data2,
+    type3 = data3
+})
+
+> ECONOMIA: Até 80% menos bandwidth!`
+      },
+
+      'exploitprevention': {
+        keywords: ['exploit', 'prevencao', 'prevenção', 'hacker', 'vulnerabilidade', 'backdoor'],
+        answer: `> MATRIZ_SYSTEM: Prevenção de Exploits
+
+**1. NUNCA use require() em Assets não confiáveis:**
+-- PERIGOSO!
+require(1234567890) -- Asset ID aleatório
+
+-- Asset pode conter:
+getfenv().owner = ... -- backdoor
+game.Players.LocalPlayer:Kick() -- malicioso
+
+**2. Sanitize inputs de RemoteEvents:**
+RemoteEvent.OnServerEvent:Connect(function(player, data)
+    -- Validar tipo
+    if typeof(data) ~= "table" then return end
+    
+    -- Validar estrutura
+    if not data.action or not data.value then return end
+    
+    -- Whitelist de ações permitidas
+    local allowedActions = {
+        ["jump"] = true,
+        ["crouch"] = true
+    }
+    
+    if not allowedActions[data.action] then
+        warn(player.Name .. " tentou ação não permitida: " .. data.action)
+        return
+    end
+    
+    -- Validar ranges
+    if typeof(data.value) == "number" then
+        data.value = math.clamp(data.value, -100, 100)
+    end
+    
+    -- OK, processar
+    handleAction(player, data)
+end)
+
+**3. Detecte manipulação de Humanoid:**
+player.CharacterAdded:Connect(function(character)
+    local humanoid = character:WaitForChild("Humanoid")
+    
+    -- Valores originais
+    local originalWalkSpeed = 16
+    local originalJumpPower = 50
+    
+    -- Monitor constante
+    task.spawn(function()
+        while character.Parent do
+            if humanoid.WalkSpeed ~= originalWalkSpeed then
+                humanoid.WalkSpeed = originalWalkSpeed
+                flagSuspicious(player, "Speed modified")
+            end
+            
+            if humanoid.JumpPower ~= originalJumpPower then
+                humanoid.JumpPower = originalJumpPower
+                flagSuspicious(player, "Jump modified")
+            end
+            
+            task.wait(0.1)
+        end
+    end)
+end)
+
+**4. Proteja contra Delete Character:**
+-- Exploiters podem fazer character:Destroy()
+
+Players.PlayerAdded:Connect(function(player)
+    player.CharacterAdded:Connect(function(character)
+        character.AncestryChanged:Connect(function()
+            if not character.Parent then
+                warn(player.Name .. " deletou character!")
+                player:LoadCharacter() -- respawn
+            end
+        end)
+    end)
+end)
+
+**5. Rate Limiting em RemoteEvents:**
+local eventCalls = {}
+local MAX_CALLS_PER_SECOND = 10
+
+RemoteEvent.OnServerEvent:Connect(function(player, ...)
+    local userId = player.UserId
+    local currentTime = tick()
+    
+    -- Inicializar tracker
+    if not eventCalls[userId] then
+        eventCalls[userId] = {calls = 0, resetTime = currentTime + 1}
+    end
+    
+    local tracker = eventCalls[userId]
+    
+    -- Reset contador a cada segundo
+    if currentTime >= tracker.resetTime then
+        tracker.calls = 0
+        tracker.resetTime = currentTime + 1
+    end
+    
+    -- Incrementar
+    tracker.calls += 1
+    
+    -- Verificar limite
+    if tracker.calls > MAX_CALLS_PER_SECOND then
+        warn(player.Name .. " spam detectado!")
+        return -- ignorar chamada
+    end
+    
+    -- Processar normalmente
+    handleEvent(player, ...)
+end)
+
+> DEFESA EM CAMADAS: Combine múltiplas técnicas!`
+      }
+    };
+
     // Variável para controlar se está digitando
     let isTyping = false;
     let currentKnowledgeBase = knowledgeBase;
 
-    // FUNÇÃO TOGGLE LAB MODE
+    // CARREGAR PROGRESSO DO QUIZ
+    function loadProgress() {
+      const saved = localStorage.getItem('studioHD_quizCompleted');
+      if (saved === 'true') {
+        quizCompleted = true;
+        unlockMatrixMode();
+      }
+    }
+
+    // SALVAR PROGRESSO
+    function saveProgress() {
+      localStorage.setItem('studioHD_quizCompleted', 'true');
+    }
+
+    // DESBLOQUEAR MODO MATRIX
+    function unlockMatrixMode() {
+      const matrixBtn = document.getElementById('matrixBtn');
+      matrixBtn.classList.add('unlocked');
+    }
+
+    // ABRIR QUIZ
+    function openQuiz() {
+      currentQuestion = 0;
+      score = 0;
+      showPage('quiz');
+      displayQuestion();
+    }
+
+    // MOSTRAR PERGUNTA
+    function displayQuestion() {
+      const q = quizQuestions[currentQuestion];
+      
+      document.getElementById('questionCounter').textContent = `Pergunta ${currentQuestion + 1} de ${quizQuestions.length}`;
+      document.getElementById('questionText').textContent = q.question;
+      
+      const answersContainer = document.getElementById('answersContainer');
+      answersContainer.innerHTML = '';
+      
+      q.answers.forEach((answer, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'answer-btn';
+        btn.textContent = answer;
+        btn.onclick = () => checkAnswer(index);
+        answersContainer.appendChild(btn);
+      });
+    }
+
+    // VERIFICAR RESPOSTA
+    function checkAnswer(selectedIndex) {
+      const q = quizQuestions[currentQuestion];
+      const buttons = document.querySelectorAll('.answer-btn');
+      
+      // Desabilitar todos os botões
+      buttons.forEach(btn => btn.style.pointerEvents = 'none');
+      
+      if (selectedIndex === q.correct) {
+        buttons[selectedIndex].classList.add('correct');
+        score++;
+      } else {
+        buttons[selectedIndex].classList.add('wrong');
+        buttons[q.correct].classList.add('correct');
+      }
+      
+      setTimeout(() => {
+        currentQuestion++;
+        
+        if (currentQuestion < quizQuestions.length) {
+          displayQuestion();
+        } else {
+          showQuizResult();
+        }
+      }, 1500);
+    }
+
+    // MOSTRAR RESULTADO
+    function showQuizResult() {
+      document.getElementById('quizContainer').style.display = 'none';
+      const resultDiv = document.getElementById('quizResult');
+      resultDiv.style.display = 'block';
+      
+      const percentage = (score / quizQuestions.length) * 100;
+      
+      let resultHTML = `
+        <h3>🎉 QUIZ COMPLETO! 🎉</h3>
+        <div class="score-display">
+          Você acertou ${score} de ${quizQuestions.length} perguntas!<br>
+          (${percentage.toFixed(0)}%)
+        </div>
+      `;
+      
+      if (score === quizQuestions.length) {
+        resultHTML += `
+          <div class="unlock-message">
+            ⚡⚡⚡ MODO MATRIX DESBLOQUEADO! ⚡⚡⚡<br>
+            Acesso ao conhecimento ultra-avançado liberado!<br>
+            Volte ao menu inicial e clique em "Modo Matrix"!
+          </div>
+        `;
+        
+        quizCompleted = true;
+        saveProgress();
+        unlockMatrixMode();
+      } else {
+        resultHTML += `
+          <p style="color: #ffa500; font-size: 1.2rem;">
+            Você precisa acertar todas as perguntas para desbloquear o Modo Matrix!<br>
+            Tente novamente! 💪
+          </p>
+        `;
+      }
+      
+      resultDiv.innerHTML = resultHTML;
+    }
+
+    // TOGGLE LAB MODE
     function toggleLabMode() {
+      if (matrixModeActive) {
+        matrixModeActive = false;
+        document.body.classList.remove('matrix-mode');
+      }
+      
       labModeActive = !labModeActive;
       document.body.classList.toggle('lab-mode');
       
-      const labModeText = document.getElementById('labModeText');
       const assistantTitle = document.getElementById('assistantTitle');
       const assistantSubtitle = document.getElementById('assistantSubtitle');
       
       if (labModeActive) {
-        labModeText.textContent = '🔬 Desativar Lab Mode';
         assistantTitle.textContent = '🧪 Assistente Lab - Avançado';
         assistantSubtitle.textContent = 'Tópicos avançados de Roblox Studio!';
         currentKnowledgeBase = labKnowledgeBase;
-        updateSuggestions(true);
+        updateSuggestions('lab');
       } else {
-        labModeText.textContent = '🔬 Ativar Lab Mode';
         assistantTitle.textContent = '🤖 Assistente Roblox Studio';
         assistantSubtitle.textContent = 'Tire suas dúvidas sobre Roblox Studio!';
         currentKnowledgeBase = knowledgeBase;
-        updateSuggestions(false);
+        updateSuggestions('normal');
+      }
+    }
+
+    // TOGGLE MATRIX MODE
+    function toggleMatrixMode() {
+      if (!quizCompleted) {
+        alert('Complete o Quiz primeiro para desbloquear o Modo Matrix! 🎯');
+        return;
+      }
+      
+      if (labModeActive) {
+        labModeActive = false;
+        document.body.classList.remove('lab-mode');
+      }
+      
+      matrixModeActive = !matrixModeActive;
+      document.body.classList.toggle('matrix-mode');
+      
+      const assistantTitle = document.getElementById('assistantTitle');
+      const assistantSubtitle = document.getElementById('assistantSubtitle');
+      
+      if (matrixModeActive) {
+        assistantTitle.textContent = '⚡ MATRIX MODE - ULTRA AVANÇADO';
+        assistantSubtitle.textContent = 'Conhecimento de nível hacker desbloqueado!';
+        currentKnowledgeBase = matrixKnowledgeBase;
+        updateSuggestions('matrix');
+      } else {
+        assistantTitle.textContent = '🤖 Assistente Roblox Studio';
+        assistantSubtitle.textContent = 'Tire suas dúvidas sobre Roblox Studio!';
+        currentKnowledgeBase = knowledgeBase;
+        updateSuggestions('normal');
       }
     }
 
     // ATUALIZAR SUGESTÕES
-    function updateSuggestions(labMode) {
+    function updateSuggestions(mode) {
       const suggestionsDiv = document.getElementById('suggestions');
       
-      if (labMode) {
+      if (mode === 'lab') {
         suggestionsDiv.innerHTML = `
           <button class="suggestion-btn" onclick="askQuestion('O que são ModuleScripts?')">ModuleScripts</button>
           <button class="suggestion-btn" onclick="askQuestion('Como usar HttpService?')">HttpService</button>
           <button class="suggestion-btn" onclick="askQuestion('O que são Metatables?')">Metatables</button>
           <button class="suggestion-btn" onclick="askQuestion('Como usar ContextActionService?')">ContextActionService</button>
           <button class="suggestion-btn" onclick="askQuestion('Como fazer Pathfinding?')">Pathfinding</button>
+        `;
+      } else if (mode === 'matrix') {
+        suggestionsDiv.innerHTML = `
+          <button class="suggestion-btn" onclick="askQuestion('Como fazer debounce avançado?')">Debounce Avançado</button>
+          <button class="suggestion-btn" onclick="askQuestion('O que são memory leaks?')">Memory Leaks</button>
+          <button class="suggestion-btn" onclick="askQuestion('Como criar anti-cheat?')">Anti-Cheat</button>
+          <button class="suggestion-btn" onclick="askQuestion('Otimização de performance')">Otimização</button>
+          <button class="suggestion-btn" onclick="askQuestion('Como otimizar networking?')">Networking</button>
+          <button class="suggestion-btn" onclick="askQuestion('Prevenção de exploits')">Anti-Exploits</button>
         `;
       } else {
         suggestionsDiv.innerHTML = `
@@ -1276,6 +2457,20 @@ local path = PathfindingService:CreatePath({
         return bestMatch;
       }
 
+      if (matrixModeActive) {
+        return `> MATRIZ_ERROR: Query não reconhecida
+
+Conhecimento disponível no MATRIX MODE:
+• Debounce Avançado - Anti-spam profissional
+• Memory Leaks - Prevenção de vazamentos
+• Anti-Cheat - Sistemas de segurança
+• Otimização - Performance extrema
+• Networking - Redução de bandwidth
+• Exploit Prevention - Proteção total
+
+> Reformule a query ou selecione um tópico`;
+      }
+
       if (labModeActive) {
         return `Hmm, não tenho certeza sobre isso ainda. 🧪
 
@@ -1304,7 +2499,7 @@ Tente reformular sua pergunta ou escolha uma das sugestões abaixo!`;
     // EFEITO DE DIGITAÇÃO LETRA POR LETRA
     function typeMessage(text, element, callback) {
       let index = 0;
-      const speed = 15;
+      const speed = matrixModeActive ? 10 : 15;
       
       function type() {
         if (index < text.length) {
@@ -1367,7 +2562,13 @@ Tente reformular sua pergunta ou escolha uma das sugestões abaixo!`;
       messageDiv.className = 'message bot';
       
       const headerDiv = document.createElement('strong');
-      headerDiv.textContent = labModeActive ? 'Assistente Lab HD' : 'Assistente Studio HD';
+      if (matrixModeActive) {
+        headerDiv.textContent = 'MATRIX_SYSTEM';
+      } else if (labModeActive) {
+        headerDiv.textContent = 'Assistente Lab HD';
+      } else {
+        headerDiv.textContent = 'Assistente Studio HD';
+      }
       messageDiv.appendChild(headerDiv);
       
       const contentDiv = document.createElement('span');
@@ -1398,6 +2599,12 @@ Tente reformular sua pergunta ou escolha uma das sugestões abaixo!`;
       });
       
       document.getElementById(pageId).classList.add('active');
+      
+      // Reset quiz se necessário
+      if (pageId === 'quiz' && !quizCompleted) {
+        document.getElementById('quizContainer').style.display = 'block';
+        document.getElementById('quizResult').style.display = 'none';
+      }
     }
 
     function goHome() {
@@ -1408,8 +2615,9 @@ Tente reformular sua pergunta ou escolha uma das sugestões abaixo!`;
       document.getElementById('home').style.display = 'flex';
     }
 
-    // INICIALIZAR SUGESTÕES
-    updateSuggestions(false);
+    // INICIALIZAR
+    loadProgress();
+    updateSuggestions('normal');
   </script>
 
 </body>
